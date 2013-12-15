@@ -1,21 +1,21 @@
-eclise£¨android¹Ù·½ÏÂÔØµÄADT£©ÖĞµ¼Èë¹¤³ÌµÄ²½Öè£¨**Óë³£¹æµÄmaven¹¤³ÌÂÔÓĞ²»Í¬**£©¡£
+ecliseï¼ˆandroidå®˜æ–¹ä¸‹è½½çš„ADTï¼‰ä¸­å¯¼å…¥å·¥ç¨‹çš„æ­¥éª¤ï¼ˆ**ä¸å¸¸è§„çš„mavenå·¥ç¨‹ç•¥æœ‰ä¸åŒ**ï¼‰ã€‚
 
-1. ÔÚADTÉÏ°²×°m2e²å¼ş£¬²å¼şµØÖ·£ºhttp://download.eclipse.org/technology/m2e/releases
+1. åœ¨ADTä¸Šå®‰è£…m2eæ’ä»¶ï¼Œæ’ä»¶åœ°å€ï¼šhttp://download.eclipse.org/technology/m2e/releases
 
-2. °²×°Marketplace Client£º
+2. å®‰è£…Marketplace Clientï¼š
 
-    Help-Install New Software...-ÏÂÀ­Ñ¡ÔñJuno...-General Purpose Tools-Marketplace Client-°²×°¹ı³Ì...£¬¼ÇµÃÖØÆôADT¡£
+    Help-Install New Software...-ä¸‹æ‹‰é€‰æ‹©Juno...-General Purpose Tools-Marketplace Client-å®‰è£…è¿‡ç¨‹...ï¼Œè®°å¾—é‡å¯ADTã€‚
     ![juno](http://bwlsq.img38.wal8.com/img38/394592_20131215155111/138709414926.jpg)
     ![general purpose tools](http://bwlsq.img38.wal8.com/img38/394592_20131215155111/138709414857.jpg)
     ![marketplace client](http://bwlsq.img38.wal8.com/img38/394592_20131215155111/138709414974.jpg)
 
-3. °²×°android Configurator£º
+3. å®‰è£…android Configuratorï¼š
 
-    Help-Eclipse Marketplace-ÊäÈëandroid m2eËÑË÷£¬Ñ¡Ôñ
+    Help-Eclipse Marketplace-è¾“å…¥android m2eæœç´¢ï¼Œé€‰æ‹©
     ![android configurator](http://bwlsq.img38.wal8.com/img38/394592_20131215155111/13870949132.jpg)
 
-4. ÉèÖÃ»·¾³±äÁ¿ANDROID_HOME£¨¼´sdkÄÇ¸öÄ¿Â¼£¬sdkÒªÓĞlevel 10ºÍ16°æ±¾£©
+4. è®¾ç½®ç¯å¢ƒå˜é‡ANDROID_HOMEï¼ˆå³sdké‚£ä¸ªç›®å½•ï¼Œsdkè¦æœ‰level 10å’Œ16ç‰ˆæœ¬ï¼‰
 
-5. Ê¹ÓÃ**maven3.0.5£¨Ò»¶¨ÒªÕâ¸ö°æ±¾£©**°æ±¾±àÒëÏÂ¹¤³Ì£¨Ö÷ÒªÎªÁË½«Ïà¹ØµÄjar°üÏÂÏÂÀ´£©£¬**²»ÒªÊ¹ÓÃmvn eclipse:eclipse**À´Éú³Éeclipse¹¤³Ì£¬Ëü²»ÄÜºÜºÃµÄ´¦ÀígenÔ´ÎÄ¼şÄ¿Â¼¡£
+5. ä½¿ç”¨**maven3.0.5ï¼ˆä¸€å®šè¦è¿™ä¸ªç‰ˆæœ¬ï¼‰**ç‰ˆæœ¬ç¼–è¯‘ä¸‹å·¥ç¨‹ï¼ˆä¸»è¦ä¸ºäº†å°†ç›¸å…³çš„jaråŒ…ä¸‹ä¸‹æ¥ï¼‰ï¼Œ**ä¸è¦ä½¿ç”¨mvn eclipse:eclipse**æ¥ç”Ÿæˆeclipseå·¥ç¨‹ï¼Œå®ƒä¸èƒ½å¾ˆå¥½çš„å¤„ç†genæºæ–‡ä»¶ç›®å½•ã€‚
 
-6. import ¹¤³Ìµ½ADT¡£import-**Maven**-**Existing Maven Projects**£¬²»ÄÜÑ¡android project£¬Ò²²»ÊÇGeneralÖĞµÄproject¡£
+6. import å·¥ç¨‹åˆ°ADTã€‚import-**Maven**-**Existing Maven Projects**ï¼Œä¸èƒ½é€‰android projectï¼Œä¹Ÿä¸æ˜¯Generalä¸­çš„projectã€‚
