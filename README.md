@@ -23,7 +23,9 @@ eclipse中导入工程的必看（开发前必看）：[点这里](https://githu
  - [ ] 职位detail @曹国伟 @辛伟
 
 
+## Training
 
+12-20  @丁一 :内容待定
 
 ## FAQ
 
