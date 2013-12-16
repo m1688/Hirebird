@@ -17,7 +17,7 @@ public class ResumeModel implements Serializable {
 	private List<Education> education; // 教育经历
 	private String skillDetail; // 基本技能详细
 	private List<WorkExperience> experience; // 工作经历
-	private String experienceDetail; // 教育经历详细描述
+	private String experienceDetail; // 工作经历详细描述
 	private JobTarget target; // 求职目标
 
 	public Long getId() {

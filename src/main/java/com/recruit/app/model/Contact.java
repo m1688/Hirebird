@@ -14,7 +14,7 @@ public class Contact {
 	private String qq;
 	private String wx;// 微信号码
 	private String residence;// 户籍所在地
-	private String currentLocation;// 当前所在地
+	private String location;// 当前所在地
 
 	public String getEmail() {
 		return email;
@@ -64,12 +64,12 @@ public class Contact {
 		this.residence = residence;
 	}
 
-	public String getCurrentLocation() {
-		return currentLocation;
+	public String getLocation() {
+		return location;
 	}
 
-	public void setCurrentLocation(String currentLocation) {
-		this.currentLocation = currentLocation;
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 }
