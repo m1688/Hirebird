@@ -7,7 +7,7 @@ eclipse中导入工程的必看（开发前必看）：[点这里](https://githu
 
 ## App desgin 规范
 
-[必看](https://github.com/m1688/app-design/README.md)
+[必看](https://github.com/m1688/app-design/)
 
 
 ## Task List
