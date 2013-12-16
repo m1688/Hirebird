@@ -21,3 +21,10 @@ eclipse中导入工程的必看（开发前必看）：[点这里](https://githu
  - [ ] 消息通知 @余乐
  - [ ] 发职位 @丁一 @程达
  - [ ] 职位detail @曹国伟 @辛伟
+
+
+
+
+## FAQ
+
+[github使用简介](https://github.com/m1688/android-practice/wiki/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8GITHUB%E5%BC%80%E5%8F%91)
