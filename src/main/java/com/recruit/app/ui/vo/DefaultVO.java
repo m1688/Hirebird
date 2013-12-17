@@ -1,4 +1,4 @@
-package com.recruit.app.domain.vo;
+package com.recruit.app.ui.vo;
 
 /**
  * VO示例类
