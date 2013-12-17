@@ -1,4 +1,4 @@
-package com.recruit.app.model;
+package com.recruit.app.domain.model;
 
 /**
  * 联系方式
