@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.+'
+        classpath 'com.android.tools.build:gradle:0.6.3'
     }
 }
 apply plugin: 'android'
@@ -34,6 +34,7 @@ dependencies {
     instrumentTestCompile 'org.hamcrest:hamcrest-library:1.3'
     instrumentTestCompile 'org.mockito:mockito-core:1.9.5'
 }
+
 
 android {
     compileSdkVersion 19
@@ -70,4 +71,18 @@ android {
             // testInstrumentationRunner 'android.test.InstrumentationTestRunner' // this is the default
         }
     }
+   sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        instrumentTest.setRoot('tests')
+    }
 }
+
