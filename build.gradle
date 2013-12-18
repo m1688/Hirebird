@@ -48,12 +48,12 @@ android {
     }
 
     // signingConfigs {
-        // release {
-            // storeFile file(System.getenv('ANDROID_KEYSTORE_PATH'))
-            // storePassword System.getenv('ANDROID_STORE_PASS')
-            // keyAlias System.getenv('ANDROID_KEY_ALIAS')
-            // keyPassword System.getenv('ANDROID_KEY_PASS')
-        // }
+    // release {
+    // storeFile file(System.getenv('ANDROID_KEYSTORE_PATH'))
+    // storePassword System.getenv('ANDROID_STORE_PASS')
+    // keyAlias System.getenv('ANDROID_KEY_ALIAS')
+    // keyPassword System.getenv('ANDROID_KEY_PASS')
+    // }
     // }
 
     buildTypes {
@@ -71,7 +71,7 @@ android {
             // testInstrumentationRunner 'android.test.InstrumentationTestRunner' // this is the default
         }
     }
-   sourceSets {
+    sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
