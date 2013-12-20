@@ -6,5 +6,7 @@
 /target
 
 /.settings
-/build
 *.iml
+/gradle
+*gradle*
+/.idea
