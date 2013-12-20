@@ -4,5 +4,6 @@
     <string name="app_name">内推</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+	
+    <string name="search_hint">搜索职位或公司</string>
 </resources>

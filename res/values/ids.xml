@@ -1,3 +1,4 @@
 <resources>
     <item name="snack" type="id"/>
+    <item name="search_input" type="id"/>
 </resources>
