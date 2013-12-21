@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class ResumeModel implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private long id;
 	private User user; // 用户基本信息
 	private Contact contact; // 联系方式
 	private List<Education> education; // 教育经历
@@ -20,11 +20,11 @@ public class ResumeModel implements Serializable {
 	private String experienceDetail; // 工作经历详细描述
 	private JobTarget target; // 求职目标
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
