@@ -1,16 +1,19 @@
 package com.recruit.app.ui.main;
 
-import com.recruit.R;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 
-public class ActMain extends Activity {
+import com.recruit.R;
+import com.recruit.app.db.RecruitSQLiteOpenHelper;
+
+public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		RecruitSQLiteOpenHelper.init(getApplicationContext());
+		SampleDatas.init();
 		setContentView(R.layout.activity_main);
 	}
 

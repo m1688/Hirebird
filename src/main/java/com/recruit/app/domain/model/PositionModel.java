@@ -1,7 +1,21 @@
 package com.recruit.app.domain.model;
 
+import static com.recruit.app.db.tables.Position.COMPANY;
+import static com.recruit.app.db.tables.Position.DETAIL;
+import static com.recruit.app.db.tables.Position.FUNCTION;
+import static com.recruit.app.db.tables.Position.LOCATION;
+import static com.recruit.app.db.tables.Position.LOWEST_DEGREE;
+import static com.recruit.app.db.tables.Position.POST_DATE;
+import static com.recruit.app.db.tables.Position.PUBLISHER;
+import static com.recruit.app.db.tables.Position.QUANTITY;
+import static com.recruit.app.db.tables.Position.SALARY;
+import static com.recruit.app.db.tables.Position.SKILL;
+import static com.recruit.app.db.tables.Position.WORK_YEAR;
+
 import java.io.Serializable;
 import java.util.Date;
+
+import android.content.ContentValues;
 
 /**
  * 职位模型
@@ -11,7 +25,7 @@ import java.util.Date;
  */
 public class PositionModel implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private long id;
 	private User publisher;// 岗位发布人
 	private Company company;// 公司信息
 	private Date postDate;// 发布时间
@@ -24,11 +38,11 @@ public class PositionModel implements Serializable {
 	private String skill;// 任职要求，基本技能
 	private String salary;// 薪资待遇
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -120,4 +134,24 @@ public class PositionModel implements Serializable {
 		this.salary = salary;
 	}
 
+	/**
+	 * 将字段转换成ContentValues
+	 * 
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(PUBLISHER, publisher.getId());
+		cv.put(COMPANY, company.getId());
+		cv.put(POST_DATE, postDate == null ? 0 : postDate.getTime());
+		cv.put(LOCATION, location);
+		cv.put(WORK_YEAR, workYear);
+		cv.put(QUANTITY, quantity);
+		cv.put(LOWEST_DEGREE, lowestDegree);
+		cv.put(FUNCTION, function);
+		cv.put(DETAIL, detail);
+		cv.put(SKILL, skill);
+		cv.put(SALARY, salary);
+		return cv;
+	}
 }

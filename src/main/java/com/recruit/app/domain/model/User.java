@@ -3,6 +3,18 @@ package com.recruit.app.domain.model;
 
 import java.util.Date;
 
+import android.content.ContentValues;
+import static com.recruit.app.db.tables.User.BIRTHDAY;
+import static com.recruit.app.db.tables.User.CREATE_DATE;
+import static com.recruit.app.db.tables.User.DEGREE;
+import static com.recruit.app.db.tables.User.ENGLISH_LEVEL;
+import static com.recruit.app.db.tables.User.ID_NUM;
+import static com.recruit.app.db.tables.User.ID_TYPE;
+import static com.recruit.app.db.tables.User.MAJOR;
+import static com.recruit.app.db.tables.User.MODIFY_DATE;
+import static com.recruit.app.db.tables.User.NAME;
+import static com.recruit.app.db.tables.User.SEX;
+import static com.recruit.app.db.tables.User.WORK_YEAR;
 /**
  * 用户信息
  * 
@@ -10,7 +22,7 @@ import java.util.Date;
  * 
  */
 public class User {
-	private Long id;
+	private long id;
 	private String name;// 真实姓名
 	private int sex;// 性别，0男，1女，2人妖
 	private Date birthday;// 出生日期
@@ -25,20 +37,20 @@ public class User {
 
 	private Account account; // 账号信息
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public int getSex() {
@@ -129,4 +141,23 @@ public class User {
 		this.account = account;
 	}
 
+	/**
+	 * 将字段转换成CententValues
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(NAME, name);
+		cv.put(SEX, sex);
+		cv.put(BIRTHDAY, birthday == null ? 0 : birthday.getTime());
+		cv.put(ID_TYPE, idType);
+		cv.put(ID_NUM, idNum);
+		cv.put(DEGREE, degree);
+		cv.put(MAJOR, major);
+		cv.put(ENGLISH_LEVEL, englishLevel);
+		cv.put(WORK_YEAR, workingYear);
+		cv.put(CREATE_DATE, createDate == null ? 0 : createDate.getTime());
+		cv.put(MODIFY_DATE, modifyDate == null ? 0 : modifyDate.getTime());
+		return cv;
+	}
 }
