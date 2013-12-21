@@ -34,7 +34,7 @@ public class SQLitePositionDAOImpl implements PositionDAO {
 	public PositionModel queryById(long positionId) {
 		SQLiteOpenHelper sqLiteOpenHelper = RecruitSQLiteOpenHelper.getInstance();
 		SQLiteDatabase db = sqLiteOpenHelper.getWritableDatabase();
-		Cursor cursor = db.query(POSITION_TABLE_NAME, POSITION_SELECT_COLUMNS, "id=?", new String[]{String.valueOf(positionId)}, null, null, null);
+		Cursor cursor = db.query(POSITION_TABLE_NAME, POSITION_SELECT_COLUMNS, "ID=?", new String[]{String.valueOf(positionId)}, null, null, null);
 		try {
 			if(cursor.moveToNext()) {
 				PositionModel positionModel = new PositionModel();
@@ -53,6 +53,7 @@ public class SQLitePositionDAOImpl implements PositionDAO {
 				positionModel.setSalary(cursor.getString(cursor.getColumnIndexOrThrow(SALARY)));
 				positionModel.setSkill(cursor.getString(cursor.getColumnIndexOrThrow(SKILL)));
 				positionModel.setWorkYear(cursor.getInt((cursor.getColumnIndexOrThrow(WORK_YEAR))));
+				return positionModel;
 			}
 		} finally {
 			cursor.close();
