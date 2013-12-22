@@ -13,4 +13,5 @@ public class User {
 	public static final String WORK_YEAR = "WORK_YEAR";
 	public static final String CREATE_DATE = "CREATE_DATE";
 	public static final String MODIFY_DATE = "MODIFY_DATE";
+	public static final String ACCOUNT = "ACCOUNT";
 }

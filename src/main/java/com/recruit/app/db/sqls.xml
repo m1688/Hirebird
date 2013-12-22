@@ -80,7 +80,7 @@
     </sql>
     <sql id="create_resume">
      <![CDATA[
-     create table if not exists jobtarget (
+     create table if not exists resume (
      	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
      	USER_ID			INTEGER,
      	CONTACT_ID		INTEGER,
@@ -106,7 +106,8 @@
      	ENGLISH_LEVEL	INTEGER,
      	WORK_YEAR		INTEGER,
      	CREATE_DATE		DATETIME,
-     	MODIFY_DATE		DATETIME
+     	MODIFY_DATE		DATETIME,
+     	ACCOUNT			INTEGER
      )
      ]]>
     </sql>

@@ -1,9 +1,9 @@
 package com.recruit.app.dao;
 
-import com.recruit.app.domain.model.PositionModel;
+import com.recruit.app.db.dataobject.PositionDO;
 
 public interface PositionDAO {
-	public PositionModel queryById(long positionId);
+	public PositionDO queryById(long positionId);
 	
-	public long addPosition(PositionModel model);
+	public long addPosition(PositionDO model);
 }

@@ -1,6 +1,7 @@
 package com.recruit.app.util;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class CaseInsensitiveHashMap<K, V> extends HashMap<K, V> {
@@ -9,7 +10,7 @@ public class CaseInsensitiveHashMap<K, V> extends HashMap<K, V> {
 	@Override
 	public V get(Object key) {
 		if(key instanceof String) {
-			return super.get(((String) key).toLowerCase());
+			return super.get(((String) key).toLowerCase(Locale.getDefault()));
 		}
 		return super.get(key);
 	}
@@ -17,7 +18,7 @@ public class CaseInsensitiveHashMap<K, V> extends HashMap<K, V> {
 	@Override
 	public V put(K key, V value) {
 		if(key instanceof String) {
-			return super.put((K)((String) key).toLowerCase(), value);
+			return super.put((K)((String) key).toLowerCase(Locale.getDefault()), value);
 		}
 		return super.put(key, value);
 	}
@@ -30,7 +31,7 @@ public class CaseInsensitiveHashMap<K, V> extends HashMap<K, V> {
 		for(Entry<? extends K, ? extends V> entry : map.entrySet()) {
 			K key = entry.getKey();
 			if(key instanceof String) {
-				put((K)((String) key).toLowerCase(), entry.getValue());
+				put((K)((String) key).toLowerCase(Locale.getDefault()), entry.getValue());
 			}
 		}
 	}

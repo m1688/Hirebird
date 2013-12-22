@@ -1,8 +1,8 @@
 package com.recruit.app.dao;
 
-import com.recruit.app.domain.model.User;
+import com.recruit.app.db.dataobject.UserDO;
 
 public interface UserDAO {
-	public long addUser(User user);
-	public User queryById(long userId);
+	public long addUser(UserDO user);
+	public UserDO queryById(long userId);
 }

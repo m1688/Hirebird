@@ -20,9 +20,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.recruit.app.dao.PositionDAO;
-import com.recruit.app.dao.factory.DAOFactory;
 import com.recruit.app.db.RecruitSQLiteOpenHelper;
-import com.recruit.app.domain.model.PositionModel;
+import com.recruit.app.db.dataobject.PositionDO;
 
 public class SQLitePositionDAOImpl implements PositionDAO {
 	private static final String POSITION_TABLE_NAME = "position";
@@ -31,17 +30,15 @@ public class SQLitePositionDAOImpl implements PositionDAO {
 			QUANTITY, LOWEST_DEGREE, FUNCTION, DETAIL, SKILL,
 			SALARY };
 
-	public PositionModel queryById(long positionId) {
+	public PositionDO queryById(long positionId) {
 		SQLiteOpenHelper sqLiteOpenHelper = RecruitSQLiteOpenHelper.getInstance();
 		SQLiteDatabase db = sqLiteOpenHelper.getWritableDatabase();
 		Cursor cursor = db.query(POSITION_TABLE_NAME, POSITION_SELECT_COLUMNS, "ID=?", new String[]{String.valueOf(positionId)}, null, null, null);
 		try {
 			if(cursor.moveToNext()) {
-				PositionModel positionModel = new PositionModel();
-				long companyId = cursor.getLong((cursor.getColumnIndexOrThrow(COMPANY)));
-				positionModel.setCompany(DAOFactory.getInstance().getCompanyDAO().queryById(companyId));
-				long userId = cursor.getLong((cursor.getColumnIndexOrThrow(PUBLISHER)));
-				positionModel.setPublisher(DAOFactory.getInstance().getUserDAO().queryById(userId));
+				PositionDO positionModel = new PositionDO();
+				positionModel.setCompany(cursor.getLong((cursor.getColumnIndexOrThrow(COMPANY))));
+				positionModel.setPublisher(cursor.getLong((cursor.getColumnIndexOrThrow(PUBLISHER))));
 				positionModel.setFunction(cursor.getString(cursor.getColumnIndexOrThrow(FUNCTION)));
 				positionModel.setDetail(cursor.getString(cursor.getColumnIndexOrThrow(DETAIL)));
 				positionModel.setId(positionId);
@@ -61,7 +58,7 @@ public class SQLitePositionDAOImpl implements PositionDAO {
 		return null;
 	}
 
-	public long addPosition(PositionModel model) {
+	public long addPosition(PositionDO model) {
 		if (model == null) {
 			return -1;
 		}

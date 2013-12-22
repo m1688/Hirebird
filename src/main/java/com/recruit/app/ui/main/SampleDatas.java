@@ -3,9 +3,11 @@ package com.recruit.app.ui.main;
 import java.util.Date;
 
 import com.recruit.app.dao.factory.DAOFactory;
+import com.recruit.app.db.dataobject.CompanyDO;
+import com.recruit.app.db.dataobject.PositionDO;
+import com.recruit.app.db.dataobject.UserDO;
 import com.recruit.app.domain.model.Account;
 import com.recruit.app.domain.model.Company;
-import com.recruit.app.domain.model.PositionModel;
 import com.recruit.app.domain.model.User;
 
 
@@ -19,10 +21,10 @@ public class SampleDatas {
 	
 	private static void addUsers() {
 		for(int i = 1; i < 100; i++) {
-			User user = new User();
+			UserDO user = new UserDO();
 			Account account = new Account();
 			account.setId(i);
-			user.setAccount(account);
+			user.setAccount(i);
 			user.setBirthday(new Date(System.currentTimeMillis() - 30 * 365 * DAY));
 			user.setCreateDate(new Date(System.currentTimeMillis() - i * DAY));
 			user.setDegree("学士学位" + i);
@@ -40,10 +42,10 @@ public class SampleDatas {
 	
 	public static void addPosition() {
 		for(int i = 1; i < 10; i++) {
-			PositionModel position = new PositionModel();
+			PositionDO position = new PositionDO();
 			Company company = new Company();
 			company.setId(i);
-			position.setCompany(company);
+			position.setCompany(i);
 			position.setDetail("职位详情" + i);
 			position.setFunction("职位职能" + i);
 			position.setLocation("杭州滨江" + i);
@@ -51,7 +53,7 @@ public class SampleDatas {
 			position.setPostDate(new Date(System.currentTimeMillis() - i * DAY));
 			User user = new User();
 			user.setId(i);
-			position.setPublisher(user);
+			position.setPublisher(i);
 			position.setQuantity(i);
 			position.setSalary("" + (10000 + i%5000));
 			position.setSkill("Java");
@@ -62,7 +64,7 @@ public class SampleDatas {
 	
 	public static void addCompany() {
 		for(int i = 1; i < 100; i++) {
-			Company company = new Company();
+			CompanyDO company = new CompanyDO();
 			company.setAddress("杭州滨江" + i);
 			company.setId(i);
 			company.setIndustry("IT技术" + i);

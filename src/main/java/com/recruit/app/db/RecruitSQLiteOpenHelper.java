@@ -1,5 +1,6 @@
 package com.recruit.app.db;
 
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -49,12 +50,10 @@ public class RecruitSQLiteOpenHelper extends SQLiteOpenHelper {
 		Map<String, String> sqlMap = SQLFileParser.getSQLMap();
 		for(Entry<String, String> entry : sqlMap.entrySet()) {
 			String id = entry.getKey();
-			Log.v(TAG, "id:" + id);
-			if(!StringUtils.isBlank(id) && id.toLowerCase().startsWith("create_")) {
+			if(!StringUtils.isBlank(id) && id.toLowerCase(Locale.getDefault()).startsWith("create_")) {
 				String sql = sqlMap.get(id);
 				if(!StringUtils.isBlank(sql)) {
 					try {
-						Log.v(TAG, "before create");
 						db.execSQL(sql);
 					} catch (Exception e) {
 						Log.v(TAG, "create table error", e);
