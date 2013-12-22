@@ -1,4 +1,4 @@
-package com.recruit.app.domain.model;
+package com.recruit.app.db.dataobject;
 
 import static com.recruit.app.db.tables.Position.COMPANY;
 import static com.recruit.app.db.tables.Position.DETAIL;
@@ -23,11 +23,11 @@ import android.content.ContentValues;
  * @author wei.xinw
  * 
  */
-public class PositionModel implements Serializable {
+public class PositionDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private long id;
-	private User publisher;// 岗位发布人
-	private Company company;// 公司信息
+	private long publisher;// 岗位发布人
+	private long company;// 公司信息
 	private Date postDate;// 发布时间
 	private String location;// 工作地点
 	private int workYear;// 工作年限
@@ -44,22 +44,6 @@ public class PositionModel implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public User getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(User publisher) {
-		this.publisher = publisher;
-	}
-
-	public Company getCompany() {
-		return company;
-	}
-
-	public void setCompany(Company company) {
-		this.company = company;
 	}
 
 	public Date getPostDate() {
@@ -132,5 +116,42 @@ public class PositionModel implements Serializable {
 
 	public void setSalary(String salary) {
 		this.salary = salary;
+	}
+
+	public long getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(long publisher) {
+		this.publisher = publisher;
+	}
+
+	public long getCompany() {
+		return company;
+	}
+
+	public void setCompany(long company) {
+		this.company = company;
+	}
+
+	/**
+	 * 将字段转换成ContentValues
+	 * 
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(PUBLISHER, publisher);
+		cv.put(COMPANY, company);
+		cv.put(POST_DATE, postDate == null ? 0 : postDate.getTime());
+		cv.put(LOCATION, location);
+		cv.put(WORK_YEAR, workYear);
+		cv.put(QUANTITY, quantity);
+		cv.put(LOWEST_DEGREE, lowestDegree);
+		cv.put(FUNCTION, function);
+		cv.put(DETAIL, detail);
+		cv.put(SKILL, skill);
+		cv.put(SALARY, salary);
+		return cv;
 	}
 }
