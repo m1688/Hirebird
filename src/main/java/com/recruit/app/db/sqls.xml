@@ -60,7 +60,6 @@
      	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
      	BEGIN_DATE		DATETIME,
      	END_DATE		DATETIME,
-     	RESUME_ID		INTEGER,
      	SCHOOL			VARCHAR(64),
      	MAJOR			VARCHAR(64),
      	DETAIL			VARCHAR(128)
@@ -82,13 +81,13 @@
      <![CDATA[
      create table if not exists resume (
      	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
-     	USER_ID			INTEGER,
-     	CONTACT_ID		INTEGER,
-     	WORK_CITY		VARCHAR(64),
-     	EXPECT_SALARY	VARCHAR(16),
+     	USER			INTEGER,
+     	CONTACT			INTEGER,
+     	EDUCATIONS		VARCHAR(256),--逗号分隔的education表id
+     	WORK_EXPS		VARCHAR(256),--逗号分隔的workexp表id
      	SKILL_DETAIL	VARCHAR(1024),
      	EXP_DETAIL		TEXT,
-     	JOB_TARGET_ID	INTEGER
+     	JOB_TARGET		INTEGER
      )
      ]]>
     </sql>
