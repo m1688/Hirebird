@@ -38,14 +38,14 @@ public class SQLiteUserDAOImpl implements UserDAO {
 		return db.insert(USER_TABLE_NAME, null, user.toContentValues());
 	}
 
-	public UserDO queryById(long userId) {
+	public UserDO queryById(long id) {
 		SQLiteOpenHelper sqLiteOpenHelper = RecruitSQLiteOpenHelper.getInstance();
 		SQLiteDatabase db = sqLiteOpenHelper.getWritableDatabase();
-		Cursor cursor = db.query(USER_TABLE_NAME, USER_SELECT_COLUMNS, "id=?", new String[]{String.valueOf(userId)}, null, null, null);
+		Cursor cursor = db.query(USER_TABLE_NAME, USER_SELECT_COLUMNS, "id=?", new String[]{String.valueOf(id)}, null, null, null);
 		try {
 			if(cursor.moveToNext()) {
 				UserDO user = new UserDO();
-				user.setId(userId);
+				user.setId(id);
 				user.setAccount(cursor.getLong(cursor.getColumnIndex(ACCOUNT)));
 				String birthday = cursor.getString(cursor.getColumnIndex(BIRTHDAY));
 				user.setBirthday(DateUtil.parseDate(birthday));
