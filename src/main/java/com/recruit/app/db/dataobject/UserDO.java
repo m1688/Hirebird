@@ -3,6 +3,8 @@ package com.recruit.app.db.dataobject;
 
 import java.util.Date;
 
+import com.recruit.app.util.DateUtil;
+
 import android.content.ContentValues;
 import static com.recruit.app.db.tables.User.BIRTHDAY;
 import static com.recruit.app.db.tables.User.CREATE_DATE;
@@ -150,7 +152,7 @@ public class UserDO {
 		ContentValues cv = new ContentValues();
 		cv.put(NAME, name);
 		cv.put(SEX, sex);
-		cv.put(BIRTHDAY, birthday == null ? 0 : birthday.getTime());
+		cv.put(BIRTHDAY, DateUtil.formatDate(birthday));
 		cv.put(ID_TYPE, idType);
 		cv.put(ID_NUM, idNum);
 		cv.put(DEGREE, degree);
@@ -158,8 +160,8 @@ public class UserDO {
 		cv.put(ENGLISH_LEVEL, englishLevel);
 		cv.put(WORK_YEAR, workingYear);
 		cv.put(ACCOUNT, account);
-		cv.put(CREATE_DATE, createDate == null ? 0 : createDate.getTime());
-		cv.put(MODIFY_DATE, modifyDate == null ? 0 : modifyDate.getTime());
+		cv.put(CREATE_DATE, DateUtil.formatDateTime(createDate));
+		cv.put(MODIFY_DATE, DateUtil.formatDateTime(modifyDate));
 		return cv;
 	}
 }

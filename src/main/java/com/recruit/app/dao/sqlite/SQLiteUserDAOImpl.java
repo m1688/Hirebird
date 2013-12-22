@@ -20,6 +20,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.recruit.app.dao.UserDAO;
 import com.recruit.app.db.RecruitSQLiteOpenHelper;
 import com.recruit.app.db.dataobject.UserDO;
+import com.recruit.app.util.DateUtil;
 
 public class SQLiteUserDAOImpl implements UserDAO {
 	private static final String USER_TABLE_NAME = "user";
@@ -45,8 +46,21 @@ public class SQLiteUserDAOImpl implements UserDAO {
 			if(cursor.moveToNext()) {
 				UserDO user = new UserDO();
 				user.setId(userId);
+				user.setAccount(cursor.getLong(cursor.getColumnIndex(ACCOUNT)));
+				String birthday = cursor.getString(cursor.getColumnIndex(BIRTHDAY));
+				user.setBirthday(DateUtil.parseDate(birthday));
+				String createTime = cursor.getString(cursor.getColumnIndex(CREATE_DATE));
+				user.setCreateDate(DateUtil.parseDateTime(createTime));
+				user.setDegree(cursor.getString(cursor.getColumnIndex(DEGREE)));
+				user.setEnglishLevel(cursor.getString(cursor.getColumnIndex(ENGLISH_LEVEL)));
+				user.setIdNum(cursor.getString(cursor.getColumnIndex(ID_NUM)));
+				user.setIdType(cursor.getString(cursor.getColumnIndex(ID_TYPE)));
+				user.setMajor(cursor.getString(cursor.getColumnIndex(MAJOR)));
+				String modifyTime = cursor.getString(cursor.getColumnIndex(MODIFY_DATE));
+				user.setModifyDate(DateUtil.parseDateTime(modifyTime));
 				user.setName(cursor.getString(cursor.getColumnIndex(NAME)));
-				//TODO more fields
+				user.setSex(cursor.getInt(cursor.getColumnIndex(SEX)));
+				user.setWorkingYear(cursor.getInt(cursor.getColumnIndex(WORK_YEAR)));
 				return user;
 			}
 		} finally {

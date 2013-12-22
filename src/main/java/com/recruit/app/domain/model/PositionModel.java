@@ -1,21 +1,7 @@
 package com.recruit.app.domain.model;
 
-import static com.recruit.app.db.tables.Position.COMPANY;
-import static com.recruit.app.db.tables.Position.DETAIL;
-import static com.recruit.app.db.tables.Position.FUNCTION;
-import static com.recruit.app.db.tables.Position.LOCATION;
-import static com.recruit.app.db.tables.Position.LOWEST_DEGREE;
-import static com.recruit.app.db.tables.Position.POST_DATE;
-import static com.recruit.app.db.tables.Position.PUBLISHER;
-import static com.recruit.app.db.tables.Position.QUANTITY;
-import static com.recruit.app.db.tables.Position.SALARY;
-import static com.recruit.app.db.tables.Position.SKILL;
-import static com.recruit.app.db.tables.Position.WORK_YEAR;
-
 import java.io.Serializable;
 import java.util.Date;
-
-import android.content.ContentValues;
 
 /**
  * 职位模型

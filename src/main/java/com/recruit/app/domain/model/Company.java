@@ -1,11 +1,5 @@
 package com.recruit.app.domain.model;
 
-import android.content.ContentValues;
-import static com.recruit.app.db.tables.Company.ADDRESS;
-import static com.recruit.app.db.tables.Company.INDUSTRY;
-import static com.recruit.app.db.tables.Company.NAME;
-import static com.recruit.app.db.tables.Company.SCALE;
-import static com.recruit.app.db.tables.Company.STRUCTURE;
 public class Company {
 	private long id;
 	private String name;// 公司名称
