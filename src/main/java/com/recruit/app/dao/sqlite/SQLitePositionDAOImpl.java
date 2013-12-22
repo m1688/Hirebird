@@ -12,9 +12,6 @@ import static com.recruit.app.db.tables.Position.QUANTITY;
 import static com.recruit.app.db.tables.Position.SALARY;
 import static com.recruit.app.db.tables.Position.SKILL;
 import static com.recruit.app.db.tables.Position.WORK_YEAR;
-
-import java.util.Date;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -22,6 +19,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.recruit.app.dao.PositionDAO;
 import com.recruit.app.db.RecruitSQLiteOpenHelper;
 import com.recruit.app.db.dataobject.PositionDO;
+import com.recruit.app.util.DateUtil;
 
 public class SQLitePositionDAOImpl implements PositionDAO {
 	private static final String POSITION_TABLE_NAME = "position";
@@ -44,8 +42,8 @@ public class SQLitePositionDAOImpl implements PositionDAO {
 				positionModel.setId(positionId);
 				positionModel.setLocation(cursor.getString(cursor.getColumnIndexOrThrow(LOCATION)));
 				positionModel.setLowestDegree(cursor.getString(cursor.getColumnIndexOrThrow(LOWEST_DEGREE)));
-				long postDate = cursor.getLong((cursor.getColumnIndexOrThrow(POST_DATE)));
-				positionModel.setPostDate(postDate <= 0 ? null : new Date(postDate));
+				String postDate = cursor.getString((cursor.getColumnIndexOrThrow(POST_DATE)));
+				positionModel.setPostDate(DateUtil.parseDateTime(postDate));
 				positionModel.setQuantity(cursor.getInt((cursor.getColumnIndexOrThrow(QUANTITY))));
 				positionModel.setSalary(cursor.getString(cursor.getColumnIndexOrThrow(SALARY)));
 				positionModel.setSkill(cursor.getString(cursor.getColumnIndexOrThrow(SKILL)));

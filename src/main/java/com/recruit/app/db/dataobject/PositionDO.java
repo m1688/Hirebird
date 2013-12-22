@@ -15,6 +15,8 @@ import static com.recruit.app.db.tables.Position.WORK_YEAR;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.recruit.app.util.DateUtil;
+
 import android.content.ContentValues;
 
 /**
@@ -143,7 +145,7 @@ public class PositionDO implements Serializable {
 		ContentValues cv = new ContentValues();
 		cv.put(PUBLISHER, publisher);
 		cv.put(COMPANY, company);
-		cv.put(POST_DATE, postDate == null ? 0 : postDate.getTime());
+		cv.put(POST_DATE, DateUtil.formatDateTime(postDate));
 		cv.put(LOCATION, location);
 		cv.put(WORK_YEAR, workYear);
 		cv.put(QUANTITY, quantity);

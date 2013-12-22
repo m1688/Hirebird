@@ -2,19 +2,6 @@ package com.recruit.app.domain.model;
 
 
 import java.util.Date;
-
-import android.content.ContentValues;
-import static com.recruit.app.db.tables.User.BIRTHDAY;
-import static com.recruit.app.db.tables.User.CREATE_DATE;
-import static com.recruit.app.db.tables.User.DEGREE;
-import static com.recruit.app.db.tables.User.ENGLISH_LEVEL;
-import static com.recruit.app.db.tables.User.ID_NUM;
-import static com.recruit.app.db.tables.User.ID_TYPE;
-import static com.recruit.app.db.tables.User.MAJOR;
-import static com.recruit.app.db.tables.User.MODIFY_DATE;
-import static com.recruit.app.db.tables.User.NAME;
-import static com.recruit.app.db.tables.User.SEX;
-import static com.recruit.app.db.tables.User.WORK_YEAR;
 /**
  * 用户信息
  * 
