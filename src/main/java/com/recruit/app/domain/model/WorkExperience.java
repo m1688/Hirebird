@@ -9,7 +9,7 @@ import java.util.Date;
  * 
  */
 public class WorkExperience {
-	private Long id;
+	private long id;
 	private String company; // 公司名称
 	private String position; // 职位
 	private boolean isJob; // 是否在职
@@ -19,11 +19,11 @@ public class WorkExperience {
 	private boolean isPrivate; // 是否保密
 	private String detail; // 岗位详情介绍
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

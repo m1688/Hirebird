@@ -7,7 +7,7 @@ package com.recruit.app.domain.model;
  * 
  */
 public class Contact {
-
+	private long id;
 	private String email;
 	private String phone;// 座机号码
 	private String mobilePhone;// 手机号码
@@ -72,4 +72,11 @@ public class Contact {
 		this.location = location;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 }

@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class PositionModel implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private long id;
 	private User publisher;// 岗位发布人
 	private Company company;// 公司信息
 	private Date postDate;// 发布时间
@@ -24,11 +24,11 @@ public class PositionModel implements Serializable {
 	private String skill;// 任职要求，基本技能
 	private String salary;// 薪资待遇
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -119,5 +119,4 @@ public class PositionModel implements Serializable {
 	public void setSalary(String salary) {
 		this.salary = salary;
 	}
-
 }

@@ -8,18 +8,18 @@ import java.util.Date;
  * 
  */
 public class Education {
-	private Long id;
+	private long id;
 	private Date beginDate; // 开始时间
 	private Date endDate;// 结束时间
 	private String school; // 学习名称
 	private String major; // 专业
 	private String detail; // 教育详情描述
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

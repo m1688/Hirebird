@@ -11,17 +11,17 @@ import java.io.Serializable;
 public class Account implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private long id;
 	private String userName;
 	private String email;
 	private String mobilePhone;
 	private String password;
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

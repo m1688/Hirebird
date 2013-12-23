@@ -2,7 +2,6 @@ package com.recruit.app.domain.model;
 
 
 import java.util.Date;
-
 /**
  * 用户信息
  * 
@@ -10,7 +9,7 @@ import java.util.Date;
  * 
  */
 public class User {
-	private Long id;
+	private long id;
 	private String name;// 真实姓名
 	private int sex;// 性别，0男，1女，2人妖
 	private Date birthday;// 出生日期
@@ -25,20 +24,20 @@ public class User {
 
 	private Account account; // 账号信息
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public int getSex() {
@@ -128,5 +127,4 @@ public class User {
 	public void setAccount(Account account) {
 		this.account = account;
 	}
-
 }
