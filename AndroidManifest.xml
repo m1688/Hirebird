@@ -27,6 +27,11 @@
             android:name="com.recruit.app.ui.me.ActDefault"
             android:label="@string/app_name" >
         </activity>
+
+        <activity
+            android:name="com.recruit.app.ui.me.MessageActivity"
+            android:label="@string/message_act_label" >
+        </activity>
     </application>
 
 </manifest>

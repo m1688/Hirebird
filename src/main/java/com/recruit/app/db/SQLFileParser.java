@@ -36,7 +36,7 @@ public class SQLFileParser {
 	}
 	
 	private static void parse() {
-		InputStream inputStream = SQLFileParser.class.getClassLoader().getResourceAsStream("com/recruit/app/db/sqls.xml");
+		InputStream inputStream = SQLFileParser.class.getClassLoader().getResourceAsStream("raw/sqls.xml");
 		if(inputStream == null) {
 			throw new IllegalStateException("cannot find sqls.xml");
 		}

@@ -23,6 +23,7 @@ public class RecruitSQLiteOpenHelper extends SQLiteOpenHelper {
 	private static final int VERSION = 1;
 	
 	private static volatile RecruitSQLiteOpenHelper instance;
+
 	
 	private RecruitSQLiteOpenHelper(Context context, String name, CursorFactory factory, int version) {
 		super(context, name, factory, version);
