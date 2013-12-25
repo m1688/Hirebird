@@ -21,12 +21,15 @@ public class RecruitSQLiteOpenHelper extends SQLiteOpenHelper {
 	private static final String TAG = "SQLITE_OPEN_HELPER";
 	private static final String DB_NAME = "recruit";
 	private static final int VERSION = 1;
+
+    private Context context;
 	
 	private static volatile RecruitSQLiteOpenHelper instance;
 
 	
 	private RecruitSQLiteOpenHelper(Context context, String name, CursorFactory factory, int version) {
 		super(context, name, factory, version);
+        this.context = context;
 	}
 	
 	/**
@@ -48,7 +51,7 @@ public class RecruitSQLiteOpenHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		//创建所有id以“create_”开头的表
-		Map<String, String> sqlMap = SQLFileParser.getSQLMap();
+		Map<String, String> sqlMap = SQLFileParser.getSQLMap(context);
 		for(Entry<String, String> entry : sqlMap.entrySet()) {
 			String id = entry.getKey();
 			if(!StringUtils.isBlank(id) && id.toLowerCase(Locale.getDefault()).startsWith("create_")) {

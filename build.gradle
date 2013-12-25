@@ -1,11 +1,11 @@
 buildscript {
     repositories {
-        maven { url 'http://repo1.maven.org/maven2' }
+        maven { url 'http://central.maven.org/maven2'}
         mavenLocal()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.6.3'
+        classpath 'com.android.tools.build:gradle:0.7.1'
     }
 }
 
@@ -36,6 +36,15 @@ dependencies {
 android {
     compileSdkVersion 19
     buildToolsVersion '19.0.0'
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
 
     defaultConfig {
         minSdkVersion 8

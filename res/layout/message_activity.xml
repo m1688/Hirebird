@@ -6,32 +6,48 @@
     android:orientation="vertical">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="100dp">
 
         <!--头像-->
-        <TextView
+        <ImageView
             android:id="@+id/message_sender_icon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/icon"
+    />
+
+        <!--标题-->
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent"
+            android:layout_toRightOf="@id/message_sender_icon"
+            android:ellipsize="marquee"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/table_text_selector" />
+            android:textColor="@color/table_text_selector"
+            android:text="@string/def_message_title"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <!--时间-->
         <TextView
             android:id="@+id/message_created_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_toRightOf="@id/message_sender_icon"
+            android:layout_alignBottom="@id/message_title"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/table_text_selector" />
+            android:textColor="@color/table_text_selector"
+            android:text="2013年12月19日 13点14"
+            android:textStyle="italic"/>
 
-        <!--标题-->
-        <TextView
-            android:id="@+id/message_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/table_text_selector" />
+
 
     </RelativeLayout>
 

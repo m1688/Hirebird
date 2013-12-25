@@ -1,5 +1,6 @@
 package com.recruit.app.ui;
 
+import com.recruit.app.ui.me.MessageActivity;
 import com.squareup.otto.Bus;
 
 import javax.inject.Singleton;
@@ -16,18 +17,18 @@ import dagger.Provides;
                 complete = false,
 
                 injects = {
-                        HireBirdApplication.class
-                },
-                library = true
+                        HireBirdApplication.class,
+                        MessageActivity.class
+                }
 
         )
 public class HireBirdModule {
 
-    @Singleton
-    @Provides
-    Bus provideOttoBus() {
-        return new Bus();
-    }
+//    @Singleton
+//    @Provides
+//    Bus provideOttoBus() {
+//        return new Bus();
+//    }
 
 //    @Provides
 //    @Singleton
