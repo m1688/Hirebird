@@ -1,14 +1,26 @@
-package com.recruit.app.domain.model;
+package com.recruit.app.db.dataobject;
+
+import static com.recruit.app.db.tables.WorkExperience.BEGIN;
+import static com.recruit.app.db.tables.WorkExperience.COMPANY;
+import static com.recruit.app.db.tables.WorkExperience.DETAIL;
+import static com.recruit.app.db.tables.WorkExperience.END;
+import static com.recruit.app.db.tables.WorkExperience.IS_PRIVATE;
+import static com.recruit.app.db.tables.WorkExperience.ON_JOB;
+import static com.recruit.app.db.tables.WorkExperience.POSITION;
+import static com.recruit.app.db.tables.WorkExperience.SALARY;
 
 import java.util.Date;
 
+import android.content.ContentValues;
+
+import com.recruit.app.util.DateUtil;
 /**
  * 工作经历
  * 
  * @author wei.xinw
  * 
  */
-public class WorkExperience {
+public class WorkExperienceDO {
 	private long id;
 	private String company; // 公司名称
 	private String position; // 职位
@@ -91,4 +103,20 @@ public class WorkExperience {
 		this.detail = detail;
 	}
 
+	/**
+	 * 将字段转换成CententValues
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(BEGIN, DateUtil.formatDate(begin));
+		cv.put(COMPANY, company);
+		cv.put(DETAIL, detail);
+		cv.put(END, DateUtil.formatDate(end));
+		cv.put(IS_PRIVATE, isPrivate);
+		cv.put(ON_JOB, isJob);
+		cv.put(POSITION, position);
+		cv.put(SALARY, salary);
+		return cv;
+	}
 }

@@ -1,4 +1,12 @@
-package com.recruit.app.domain.model;
+package com.recruit.app.db.dataobject;
+import static com.recruit.app.db.tables.Contact.EMAIL;
+import static com.recruit.app.db.tables.Contact.LOCATION;
+import static com.recruit.app.db.tables.Contact.MOBILE_PHONE;
+import static com.recruit.app.db.tables.Contact.PHONE;
+import static com.recruit.app.db.tables.Contact.QQ;
+import static com.recruit.app.db.tables.Contact.RESIDENCE;
+import static com.recruit.app.db.tables.Contact.WEIXIN;
+import android.content.ContentValues;
 
 /**
  * 联系方式
@@ -6,7 +14,7 @@ package com.recruit.app.domain.model;
  * @author wei.xinw
  * 
  */
-public class Contact {
+public class ContactDO {
 	private long id;
 	private String email;
 	private String phone;// 座机号码
@@ -78,5 +86,21 @@ public class Contact {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	/**
+	 * 返回字段的ContentValues
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(EMAIL, email);
+		cv.put(PHONE, phone);
+		cv.put(MOBILE_PHONE, mobilePhone);
+		cv.put(QQ, qq);
+		cv.put(WEIXIN, wx);
+		cv.put(RESIDENCE, residence);
+		cv.put(LOCATION, location);
+		return cv;
 	}
 }

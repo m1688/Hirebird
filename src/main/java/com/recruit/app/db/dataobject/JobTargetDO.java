@@ -1,11 +1,18 @@
-package com.recruit.app.domain.model;
+package com.recruit.app.db.dataobject;
+import static com.recruit.app.db.tables.JobTarget.EXPECT_SALARY;
+import static com.recruit.app.db.tables.JobTarget.ID;
+import static com.recruit.app.db.tables.JobTarget.INDUSTRY;
+import static com.recruit.app.db.tables.JobTarget.POSITION;
+import static com.recruit.app.db.tables.JobTarget.WORK_CITY;
+import android.content.ContentValues;
+
 /**
  * 求职目标
  * 
  * @author wei.xinw
  * 
  */
-public class JobTarget {
+public class JobTargetDO {
 	private long id;
 	private String industry; // 意向行业
 	private String position; // 意向岗位
@@ -52,4 +59,16 @@ public class JobTarget {
 		this.expectSalary = expectSalary;
 	}
 
+	/**
+	 * 返回字段的ContentValues
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(INDUSTRY, industry);
+		cv.put(POSITION, position);
+		cv.put(WORK_CITY, workCity);
+		cv.put(EXPECT_SALARY, expectSalary);
+		return cv;
+	}
 }

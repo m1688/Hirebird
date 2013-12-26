@@ -1,7 +1,23 @@
-package com.recruit.app.domain.model;
+package com.recruit.app.db.dataobject;
+
+import static com.recruit.app.db.tables.Position.COMPANY;
+import static com.recruit.app.db.tables.Position.DETAIL;
+import static com.recruit.app.db.tables.Position.FUNCTION;
+import static com.recruit.app.db.tables.Position.LOCATION;
+import static com.recruit.app.db.tables.Position.LOWEST_DEGREE;
+import static com.recruit.app.db.tables.Position.POST_DATE;
+import static com.recruit.app.db.tables.Position.PUBLISHER;
+import static com.recruit.app.db.tables.Position.QUANTITY;
+import static com.recruit.app.db.tables.Position.SALARY;
+import static com.recruit.app.db.tables.Position.SKILL;
+import static com.recruit.app.db.tables.Position.WORK_YEAR;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.recruit.app.util.DateUtil;
+
+import android.content.ContentValues;
 
 /**
  * 职位模型
@@ -9,11 +25,11 @@ import java.util.Date;
  * @author wei.xinw
  * 
  */
-public class PositionModel implements Serializable {
+public class PositionDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private long id;
-	private User publisher;// 岗位发布人
-	private Company company;// 公司信息
+	private long publisher;// 岗位发布人
+	private long company;// 公司信息
 	private Date postDate;// 发布时间
 	private String location;// 工作地点
 	private int workYear;// 工作年限
@@ -30,22 +46,6 @@ public class PositionModel implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public User getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(User publisher) {
-		this.publisher = publisher;
-	}
-
-	public Company getCompany() {
-		return company;
-	}
-
-	public void setCompany(Company company) {
-		this.company = company;
 	}
 
 	public Date getPostDate() {
@@ -118,5 +118,42 @@ public class PositionModel implements Serializable {
 
 	public void setSalary(String salary) {
 		this.salary = salary;
+	}
+
+	public long getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(long publisher) {
+		this.publisher = publisher;
+	}
+
+	public long getCompany() {
+		return company;
+	}
+
+	public void setCompany(long company) {
+		this.company = company;
+	}
+
+	/**
+	 * 将字段转换成ContentValues
+	 * 
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(PUBLISHER, publisher);
+		cv.put(COMPANY, company);
+		cv.put(POST_DATE, DateUtil.formatDateTime(postDate));
+		cv.put(LOCATION, location);
+		cv.put(WORK_YEAR, workYear);
+		cv.put(QUANTITY, quantity);
+		cv.put(LOWEST_DEGREE, lowestDegree);
+		cv.put(FUNCTION, function);
+		cv.put(DETAIL, detail);
+		cv.put(SKILL, skill);
+		cv.put(SALARY, salary);
+		return cv;
 	}
 }

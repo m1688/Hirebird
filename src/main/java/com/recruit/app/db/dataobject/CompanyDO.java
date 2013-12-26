@@ -1,6 +1,12 @@
-package com.recruit.app.domain.model;
+package com.recruit.app.db.dataobject;
 
-public class Company {
+import android.content.ContentValues;
+import static com.recruit.app.db.tables.Company.ADDRESS;
+import static com.recruit.app.db.tables.Company.INDUSTRY;
+import static com.recruit.app.db.tables.Company.NAME;
+import static com.recruit.app.db.tables.Company.SCALE;
+import static com.recruit.app.db.tables.Company.STRUCTURE;
+public class CompanyDO {
 	private long id;
 	private String name;// 公司名称
 	private String address;// 地址
@@ -54,5 +60,19 @@ public class Company {
 
 	public void setScale(String scale) {
 		this.scale = scale;
+	}
+
+	/**
+	 * 返回字段的ContentValues
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(NAME, name);
+		cv.put(ADDRESS, address);
+		cv.put(INDUSTRY, industry);
+		cv.put(STRUCTURE, structure);
+		cv.put(SCALE, scale);
+		return cv;
 	}
 }

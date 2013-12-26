@@ -1,14 +1,30 @@
-package com.recruit.app.domain.model;
+package com.recruit.app.db.dataobject;
 
 
 import java.util.Date;
+
+import com.recruit.app.util.DateUtil;
+
+import android.content.ContentValues;
+import static com.recruit.app.db.tables.User.BIRTHDAY;
+import static com.recruit.app.db.tables.User.CREATE_DATE;
+import static com.recruit.app.db.tables.User.DEGREE;
+import static com.recruit.app.db.tables.User.ENGLISH_LEVEL;
+import static com.recruit.app.db.tables.User.ID_NUM;
+import static com.recruit.app.db.tables.User.ID_TYPE;
+import static com.recruit.app.db.tables.User.MAJOR;
+import static com.recruit.app.db.tables.User.MODIFY_DATE;
+import static com.recruit.app.db.tables.User.NAME;
+import static com.recruit.app.db.tables.User.SEX;
+import static com.recruit.app.db.tables.User.WORK_YEAR;
+import static com.recruit.app.db.tables.User.ACCOUNT;
 /**
  * 用户信息
  * 
  * @author wei.xinw
  * 
  */
-public class User {
+public class UserDO {
 	private long id;
 	private String name;// 真实姓名
 	private int sex;// 性别，0男，1女，2人妖
@@ -22,7 +38,7 @@ public class User {
 	private Date createDate;// 创建时间
 	private Date modifyDate;// 修改时间
 
-	private Account account; // 账号信息
+	private long account; // 账号信息
 
 	public long getId() {
 		return id;
@@ -120,11 +136,32 @@ public class User {
 		this.modifyDate = modifyDate;
 	}
 
-	public Account getAccount() {
+	public long getAccount() {
 		return account;
 	}
 
-	public void setAccount(Account account) {
+	public void setAccount(long account) {
 		this.account = account;
+	}
+
+	/**
+	 * 将字段转换成CententValues
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(NAME, name);
+		cv.put(SEX, sex);
+		cv.put(BIRTHDAY, DateUtil.formatDate(birthday));
+		cv.put(ID_TYPE, idType);
+		cv.put(ID_NUM, idNum);
+		cv.put(DEGREE, degree);
+		cv.put(MAJOR, major);
+		cv.put(ENGLISH_LEVEL, englishLevel);
+		cv.put(WORK_YEAR, workingYear);
+		cv.put(ACCOUNT, account);
+		cv.put(CREATE_DATE, DateUtil.formatDateTime(createDate));
+		cv.put(MODIFY_DATE, DateUtil.formatDateTime(modifyDate));
+		return cv;
 	}
 }

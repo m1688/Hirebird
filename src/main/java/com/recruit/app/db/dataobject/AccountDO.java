@@ -1,6 +1,12 @@
-package com.recruit.app.domain.model;
+package com.recruit.app.db.dataobject;
 
 import java.io.Serializable;
+
+import android.content.ContentValues;
+import static com.recruit.app.db.tables.Account.EMAIL;
+import static com.recruit.app.db.tables.Account.MOBILE_PHONE;
+import static com.recruit.app.db.tables.Account.PASSWORD;
+import static com.recruit.app.db.tables.Account.USERNAME;
 
 /**
  * 账号信息
@@ -8,7 +14,7 @@ import java.io.Serializable;
  * @author wei.xinw
  * 
  */
-public class Account implements Serializable {
+public class AccountDO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private long id;
@@ -56,5 +62,17 @@ public class Account implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
+	/**
+	 * 返回字段的ContentValues
+	 * @return
+	 */
+	public ContentValues toContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(EMAIL, email);
+		cv.put(USERNAME, userName);
+		cv.put(MOBILE_PHONE, mobilePhone);
+		cv.put(PASSWORD, password);
+		return cv;
+	}
 }
