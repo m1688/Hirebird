@@ -43,4 +43,6 @@
     <color name="nav_button_text_disabled">#464646</color>
     <color name="nav_background">#666b73</color>
 
+    <color name="navigation_drawer_item_separator">#c2c2c2</color>
+
 </resources>

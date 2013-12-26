@@ -1,5 +1,7 @@
 package com.recruit.app.ui;
 
+import com.recruit.app.ui.common.NavigationDrawerFragment;
+import com.recruit.app.ui.main.MainActivity;
 import com.recruit.app.ui.me.MessageActivity;
 import com.squareup.otto.Bus;
 
@@ -18,17 +20,19 @@ import dagger.Provides;
 
                 injects = {
                         HireBirdApplication.class,
-                        MessageActivity.class
+                        NavigationDrawerFragment.class,
+                        MessageActivity.class,
+                        MainActivity.class
                 }
 
         )
 public class HireBirdModule {
 
-//    @Singleton
-//    @Provides
-//    Bus provideOttoBus() {
-//        return new Bus();
-//    }
+    @Singleton
+    @Provides
+    Bus provideOttoBus() {
+        return new Bus();
+    }
 
 //    @Provides
 //    @Singleton

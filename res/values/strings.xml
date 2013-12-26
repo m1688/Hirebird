@@ -9,5 +9,9 @@
     <string name="logout_action">登出</string>
     <string name="reply">回复</string>
     <string name="refresh_action">刷新</string>
+    <string name="navigation_drawer_open">Drawer Open</string>
+    <string name="navigation_drawer_close">Drawer Close</string>
+    <string name="main_act_lable">内推</string>
+    <string name="find_neitweet">找内推</string>
 
 </resources>

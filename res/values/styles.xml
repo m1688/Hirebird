@@ -1,4 +1,8 @@
 <resources>
 
+    <style name="NavMenuButton">
+        <item name="android:textColor">@color/nav_text_selector</item>
+        <item name="android:background">@drawable/nav_menu_button_background_selector</item>
+    </style>
 
 </resources>

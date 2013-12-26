@@ -8,7 +8,7 @@
     </item>
 
     <item
-        android:id="@+id/timer"
+        android:id="@+id/reply"
         android:icon="@drawable/ic_action_reply"
         android:showAsAction="always"
         android:title="@string/reply">
