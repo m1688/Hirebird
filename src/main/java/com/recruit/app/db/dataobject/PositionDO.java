@@ -15,145 +15,154 @@ import static com.recruit.app.db.tables.Position.WORK_YEAR;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.recruit.app.util.DateUtil;
-
 import android.content.ContentValues;
+
+import com.recruit.app.util.DateUtil;
 
 /**
  * 职位模型
  * 
  * @author wei.xinw
- * 
  */
 public class PositionDO implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private long id;
-	private long publisher;// 岗位发布人
-	private long company;// 公司信息
-	private Date postDate;// 发布时间
-	private String location;// 工作地点
-	private int workYear;// 工作年限
-	private int quantity;// 招聘人数
-	private String lowestDegree;// 学历要求
-	private String function;// 职位职能
-	private String detail;// 职位详情
-	private String skill;// 任职要求，基本技能
-	private String salary;// 薪资待遇
 
-	public long getId() {
-		return id;
-	}
+    private static final long serialVersionUID = 1L;
+    private long              id;
+    private long              publisher;            // 岗位发布人
+    private long              company;              // 公司信息
+    private Date              postDate;             // 发布时间
+    private String            location;             // 工作地点
+    private int               workYear;             // 工作年限
+    private int               quantity;             // 招聘人数
+    private String            lowestDegree;         // 学历要求
+    private String            function;             // 职位职能
+    private String            detail;               // 职位详情
+    private String            skill;                // 任职要求，基本技能
+    private String            salary;               // 薪资待遇
+    private String            title;                // 职位名称
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public Date getPostDate() {
-		return postDate;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public void setPostDate(Date postDate) {
-		this.postDate = postDate;
-	}
+    public Date getPostDate() {
+        return postDate;
+    }
 
-	public String getLocation() {
-		return location;
-	}
+    public void setPostDate(Date postDate) {
+        this.postDate = postDate;
+    }
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
+    public String getLocation() {
+        return location;
+    }
 
-	public int getWorkYear() {
-		return workYear;
-	}
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
-	public void setWorkYear(int workYear) {
-		this.workYear = workYear;
-	}
+    public int getWorkYear() {
+        return workYear;
+    }
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public void setWorkYear(int workYear) {
+        this.workYear = workYear;
+    }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	public String getLowestDegree() {
-		return lowestDegree;
-	}
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-	public void setLowestDegree(String lowestDegree) {
-		this.lowestDegree = lowestDegree;
-	}
+    public String getLowestDegree() {
+        return lowestDegree;
+    }
 
-	public String getFunction() {
-		return function;
-	}
+    public void setLowestDegree(String lowestDegree) {
+        this.lowestDegree = lowestDegree;
+    }
 
-	public void setFunction(String function) {
-		this.function = function;
-	}
+    public String getFunction() {
+        return function;
+    }
 
-	public String getDetail() {
-		return detail;
-	}
+    public void setFunction(String function) {
+        this.function = function;
+    }
 
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
+    public String getDetail() {
+        return detail;
+    }
 
-	public String getSkill() {
-		return skill;
-	}
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
 
-	public void setSkill(String skill) {
-		this.skill = skill;
-	}
+    public String getSkill() {
+        return skill;
+    }
 
-	public String getSalary() {
-		return salary;
-	}
+    public void setSkill(String skill) {
+        this.skill = skill;
+    }
 
-	public void setSalary(String salary) {
-		this.salary = salary;
-	}
+    public String getSalary() {
+        return salary;
+    }
 
-	public long getPublisher() {
-		return publisher;
-	}
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
 
-	public void setPublisher(long publisher) {
-		this.publisher = publisher;
-	}
+    public long getPublisher() {
+        return publisher;
+    }
 
-	public long getCompany() {
-		return company;
-	}
+    public void setPublisher(long publisher) {
+        this.publisher = publisher;
+    }
 
-	public void setCompany(long company) {
-		this.company = company;
-	}
+    public long getCompany() {
+        return company;
+    }
 
-	/**
-	 * 将字段转换成ContentValues
-	 * 
-	 * @return
-	 */
-	public ContentValues toContentValues() {
-		ContentValues cv = new ContentValues();
-		cv.put(PUBLISHER, publisher);
-		cv.put(COMPANY, company);
-		cv.put(POST_DATE, DateUtil.formatDateTime(postDate));
-		cv.put(LOCATION, location);
-		cv.put(WORK_YEAR, workYear);
-		cv.put(QUANTITY, quantity);
-		cv.put(LOWEST_DEGREE, lowestDegree);
-		cv.put(FUNCTION, function);
-		cv.put(DETAIL, detail);
-		cv.put(SKILL, skill);
-		cv.put(SALARY, salary);
-		return cv;
-	}
+    public void setCompany(long company) {
+        this.company = company;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * 将字段转换成ContentValues
+     * 
+     * @return
+     */
+    public ContentValues toContentValues() {
+        ContentValues cv = new ContentValues();
+        cv.put(PUBLISHER, publisher);
+        cv.put(COMPANY, company);
+        cv.put(POST_DATE, DateUtil.formatDateTime(postDate));
+        cv.put(LOCATION, location);
+        cv.put(WORK_YEAR, workYear);
+        cv.put(QUANTITY, quantity);
+        cv.put(LOWEST_DEGREE, lowestDegree);
+        cv.put(FUNCTION, function);
+        cv.put(DETAIL, detail);
+        cv.put(SKILL, skill);
+        cv.put(SALARY, salary);
+        return cv;
+    }
 }
