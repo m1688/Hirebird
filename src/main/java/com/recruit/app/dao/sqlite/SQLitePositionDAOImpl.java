@@ -31,6 +31,8 @@ public class SQLitePositionDAOImpl implements PositionDAO {
     private static final String   POSITION_TABLE_NAME     = "position";
     private static final String[] POSITION_SELECT_COLUMNS = new String[] { ID, PUBLISHER, COMPANY, POST_DATE, LOCATION,
             WORK_YEAR, QUANTITY, LOWEST_DEGREE, FUNCTION, DETAIL, SKILL, SALARY, TITLE };
+    // 默认查询条数
+    private static final int      PAGE_SIZE               = 50;
 
     /**
      * 以职位名称查询
@@ -45,24 +47,24 @@ public class SQLitePositionDAOImpl implements PositionDAO {
         StringBuffer sql = new StringBuffer("select * from " + POSITION_TABLE_NAME + " where 1=1 ");
         if (title != null && title.length() > 0) {
             title = title.trim();
-            sql.append(" and title like  '%" + title + "%'  limit 0,100");
+            sql.append(" and title like  '%" + title + "%'  limit 0," + PAGE_SIZE);
         }
         Cursor cursor = null;
         try {
             cursor = db.rawQuery(sql.toString(), null);
-            if (cursor.moveToNext()) {
+            while (cursor.moveToNext()) {
                 PositionDO positionModel = this.getPositionModelFromDursor(cursor);
                 positionList.add(positionModel);
             }
         } catch (Exception e) {
-            // TODO
+            // TODO LogCat
             e.printStackTrace();
         } finally {
             if (cursor != null) {
                 cursor.close();
             }
         }
-        return null;
+        return positionList;
     }
 
     public PositionDO queryById(long positionId) {
