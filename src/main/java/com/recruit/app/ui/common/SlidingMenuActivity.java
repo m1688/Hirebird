@@ -113,7 +113,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 			PostPositionFragment positionFragment = new PostPositionFragment();
 			FragmentManager fragmentManager = getSupportFragmentManager();
 			fragmentManager.beginTransaction()
-					.replace(R.id.content_frame, positionFragment).commit();
+					.replace(R.id.content_frame, positionFragment, "position").commit();
 		}
 		menuDrawerList.setItemChecked(position, true);
 		setTitle(menuTitls[position]);

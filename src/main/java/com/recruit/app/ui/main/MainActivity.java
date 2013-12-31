@@ -1,11 +1,15 @@
 package com.recruit.app.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.recruit.R;
 import com.recruit.app.db.RecruitSQLiteOpenHelper;
 import com.recruit.app.ui.common.SlidingMenuActivity;
+import com.recruit.app.ui.job.PostJobActivity;
 
 public class MainActivity extends SlidingMenuActivity {
 
@@ -22,6 +26,18 @@ public class MainActivity extends SlidingMenuActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId()) {
+		case R.id.new_position:
+			Intent intent = new Intent(this, PostJobActivity.class);
+			startActivity(intent);
+		}
+		
+		return super.onOptionsItemSelected(item);
 	}
 
 }
