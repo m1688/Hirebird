@@ -7,5 +7,6 @@
     <string name="dummy_section_text">Section %1d is just a dummy section.</string>
     <string name="tab_position">职位详情</string>
     <string name="tab_company">公司信息</string>
-
+	<string name="drawer_close">隐藏菜单</string>
+    <string name="drawer_open">打开菜单</string>
 </resources>

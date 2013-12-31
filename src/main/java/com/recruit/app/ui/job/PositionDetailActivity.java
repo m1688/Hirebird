@@ -3,10 +3,10 @@ package com.recruit.app.ui.job;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
 
 import com.recruit.R;
 
@@ -58,5 +58,10 @@ public class PositionDetailActivity extends FragmentActivity implements
 
 	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
 
+	}
+	
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
 	}
 }
