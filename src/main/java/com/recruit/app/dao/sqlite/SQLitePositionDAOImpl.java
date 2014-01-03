@@ -106,7 +106,8 @@ public class SQLitePositionDAOImpl implements PositionDAO {
         }
         SQLiteOpenHelper sqLiteOpenHelper = RecruitSQLiteOpenHelper.getInstance();
         SQLiteDatabase db = sqLiteOpenHelper.getWritableDatabase();
-        return db.insert(POSITION_TABLE_NAME, null, model.toContentValues());
+        long result = db.insert(POSITION_TABLE_NAME, null, model.toContentValues());
+        return result;
     }
 
 }

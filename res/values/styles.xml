@@ -4,11 +4,9 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-<<<<<<< HEAD
+    
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-=======
-    <style name="AppBaseTheme" parent="android:Theme.Light">
->>>>>>> c5cae4b998cc1ad2f72a3dea0237a72fdd3e8bf2
+
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -20,7 +18,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-<<<<<<< HEAD
+
 	
     
     <!-- 按钮 -->
@@ -30,7 +28,5 @@
 		<item name="android:textStyle">bold</item>
 		<item name="android:background">#333</item>
 	</style>
-=======
 
->>>>>>> c5cae4b998cc1ad2f72a3dea0237a72fdd3e8bf2
 </resources>
