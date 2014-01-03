@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <resources> 
-<color name="white">#FFFFFF</color><!--白色 --> 
+	<color name="menu_selected">#1E90FF</color>
+	<color name="menu_unselected">#FFFFFF</color>
+	<color name="menu_pannel">#FFFFFF</color>
 </resources>

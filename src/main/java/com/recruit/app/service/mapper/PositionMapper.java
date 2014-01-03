@@ -23,7 +23,7 @@ public class PositionMapper {
         positionDO.setLocation(position.getLocation());
         positionDO.setLowestDegree(position.getLowestDegree());
         positionDO.setPostDate(position.getPostDate());
-        positionDO.setPublisher(position.getPublisher().getId());
+//        positionDO.setPublisher(position.getPublisher().getId());
         positionDO.setQuantity(position.getQuantity());
         positionDO.setSalary(position.getSalary());
         positionDO.setSkill(position.getSkill());
