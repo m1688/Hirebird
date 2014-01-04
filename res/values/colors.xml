@@ -45,4 +45,8 @@
 
     <color name="navigation_drawer_item_separator">#c2c2c2</color>
 
+    <color name="menu_selected">#1E90FF</color>
+    <color name="menu_unselected">#FFFFFF</color>
+    <color name="menu_pannel">#FFFFFF</color>
+
 </resources>

@@ -13,5 +13,7 @@
     <string name="navigation_drawer_close">Drawer Close</string>
     <string name="main_act_lable">内推</string>
     <string name="find_neitweet">找内推</string>
-
+    
+	<string name="drawer_close">隐藏菜单</string>
+    <string name="drawer_open">打开菜单</string>
 </resources>
