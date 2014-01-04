@@ -1,3 +1,6 @@
 <resources>
-    <item name="snack" type="id"/>
+    <item name="content_frame" type="id"/>
+    <item name="left_drawer" type="id"/>
+    <item name="drawer_layout" type="id"/>
+    <item name="action_bar_title" type="id"/>
 </resources>

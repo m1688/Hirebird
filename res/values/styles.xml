@@ -5,6 +5,10 @@
         <item name="android:background">@drawable/nav_menu_button_background_selector</item>
     </style>
 
+    <style name="Recruit.Theme.AppCompat.Light" parent="Theme.AppCompat.Light">
+        <item name="displayOptions">showHome|useLogo</item>
+    </style>
+
     <style name="ListView">
         <item name="android:dividerHeight">2px</item>
         <item name="android:cacheColorHint">@android:color/transparent</item>

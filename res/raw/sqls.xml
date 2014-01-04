@@ -13,6 +13,7 @@
      	FUNCTION		TEXT,
      	DETAIL			TEXT,
      	SKILL			TEXT,
+     	TITLE                   VARCHAR(128),
      	SALARY			VARCHAR(64)
      )
      ]]>
