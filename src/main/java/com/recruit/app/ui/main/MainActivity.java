@@ -10,11 +10,10 @@ import android.view.View;
 import android.view.Window;
 
 import com.recruit.R;
-import com.recruit.app.db.RecruitSQLiteOpenHelper;
 import com.recruit.app.ui.common.AbstractFragmentActivity;
 import com.recruit.app.ui.common.NavigationDrawerFragment;
 import com.recruit.app.ui.event.NavItemSelectedEvent;
-import com.recruit.app.ui.me.MessageActivity;
+import com.recruit.app.ui.me.MessageListActivity;
 import com.recruit.app.util.Ln;
 import com.recruit.app.util.UIUtils;
 import com.squareup.otto.Subscribe;
@@ -29,14 +28,14 @@ public class MainActivity extends AbstractFragmentActivity {
     private CharSequence title;
     private NavigationDrawerFragment navigationDrawerFragment;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 
         super.onCreate(savedInstanceState);
 
-        if(isTablet()) {
+        if (isTablet()) {
             setContentView(R.layout.main_activity);
         } else {
             setContentView(R.layout.main_activity);
@@ -47,7 +46,7 @@ public class MainActivity extends AbstractFragmentActivity {
         // Set up navigation drawer
         title = drawerTitle = getTitle();
 
-        if(!isTablet()) {
+        if (!isTablet()) {
             drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawerToggle = new ActionBarDrawerToggle(
                     this,                    /* Host activity */
@@ -85,16 +84,14 @@ public class MainActivity extends AbstractFragmentActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-		//RecruitSQLiteOpenHelper.init(getApplicationContext());
-		//SampleDatas.init();	//去掉注释生成例子数据，只需要生成一次即可，除非手动将数据库文件删掉了才需要再次生成
-	}
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
@@ -120,7 +117,7 @@ public class MainActivity extends AbstractFragmentActivity {
     protected void onPostCreate(final Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        if(!isTablet()) {
+        if (!isTablet()) {
             // Sync the toggle state after onRestoreInstanceState has occurred.
             drawerToggle.syncState();
         }
@@ -131,7 +128,7 @@ public class MainActivity extends AbstractFragmentActivity {
 
         Ln.d("Selected: %1$s", event.getItemPosition());
 
-        switch(event.getItemPosition()) {
+        switch (event.getItemPosition()) {
             case 0:
                 // Home
                 // do nothing as we're already on the home screen.
@@ -144,7 +141,7 @@ public class MainActivity extends AbstractFragmentActivity {
     }
 
     private void navToMessage() {
-        final Intent i = new Intent(this, MessageActivity.class);
+        final Intent i = new Intent(this, MessageListActivity.class);
         startActivity(i);
     }
 

@@ -5,6 +5,7 @@ import com.recruit.app.dao.sqlite.SQLiteCompanyDAOImpl;
 import com.recruit.app.dao.sqlite.SQLiteContactDAOImpl;
 import com.recruit.app.dao.sqlite.SQLiteEducationDAOImpl;
 import com.recruit.app.dao.sqlite.SQLiteJobTargetDAOImpl;
+import com.recruit.app.dao.sqlite.SQLiteMessageDAOImpl;
 import com.recruit.app.dao.sqlite.SQLitePositionDAOImpl;
 import com.recruit.app.dao.sqlite.SQLiteResumeDAOImpl;
 import com.recruit.app.dao.sqlite.SQLiteUserDAOImpl;
@@ -21,6 +22,7 @@ class SQLiteDAOFactory extends DAOFactory {
 		jobTargetDAO = new SQLiteJobTargetDAOImpl();
 		workExpDAO = new SQLiteWorkExpDAOImpl();
 		resumeDAO = new SQLiteResumeDAOImpl();
+        messageDAO = new SQLiteMessageDAOImpl();
 	}
 
 }

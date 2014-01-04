@@ -4,19 +4,23 @@ import java.util.Date;
 
 import com.recruit.app.dao.factory.DAOFactory;
 import com.recruit.app.db.dataobject.CompanyDO;
+import com.recruit.app.db.dataobject.MessageDO;
 import com.recruit.app.db.dataobject.PositionDO;
 import com.recruit.app.db.dataobject.UserDO;
+import com.recruit.app.db.tables.Message;
 import com.recruit.app.domain.model.Account;
 import com.recruit.app.domain.model.Company;
+import com.recruit.app.domain.model.MessageType;
 import com.recruit.app.domain.model.User;
 
 
 public class SampleDatas {
 	private static final long DAY = 24L * 60 * 60 * 1000;
 	public static void init() {
-		addCompany();
-		addUsers();
-		addPosition();
+		//addCompany();
+		//addUsers();
+		//addPosition();
+        addMessages();
 	}
 	
 	private static void addUsers() {
@@ -74,4 +78,32 @@ public class SampleDatas {
 			DAOFactory.getInstance().getCompanyDAO().addCompany(company);
 		}
 	}
+
+    private static void addMessages() {
+        for(int i = 1; i < 10; i++) {
+            MessageDO messageDO = new MessageDO();
+            messageDO.setReceiverId(Long.valueOf(i));
+            messageDO.setReceiverName("我是第" + i + "号");
+            messageDO.setContent("申请java工程师" + i);
+            messageDO.setTitle("申请java工程师" + i);
+            messageDO.setCreatedDate(new Date());
+            messageDO.setType(MessageType.APPLY.name());
+            messageDO.setSenderId(1000L);
+            messageDO.setSenderName("1000号");
+            DAOFactory.getInstance().getMessageDAO().addMessage(messageDO);
+        }
+
+        for(int i = 1; i < 10; i++) {
+            MessageDO messageDO = new MessageDO();
+            messageDO.setReceiverId(Long.valueOf(i));
+            messageDO.setReceiverName("我是第" + i + "号");
+            messageDO.setContent("职位很烂，要求很高" + i);
+            messageDO.setTitle("天气不错" + i);
+            messageDO.setCreatedDate(new Date());
+            messageDO.setType(MessageType.MESSAGE.name());
+            messageDO.setSenderId(1000L);
+            messageDO.setSenderName("1000号");
+            DAOFactory.getInstance().getMessageDAO().addMessage(messageDO);
+        }
+    }
 }
