@@ -5,7 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="send">发送</string>
     <string name="message_act_label">消息</string>
-    <string name="def_message_title">您收到了XXX的面试邀请</string>
+    <string name="def_message_title">阿里马马邀请您参加Java攻城狮面试</string>
     <string name="logout_action">登出</string>
     <string name="reply">回复</string>
     <string name="refresh_action">刷新</string>
@@ -16,4 +16,8 @@
     
 	<string name="drawer_close">隐藏菜单</string>
     <string name="drawer_open">打开菜单</string>
+    <string name="def_sender_name">阿里马马</string>
+    <string name="def_message_body">亲爱的XX\n\n非常感谢你投递该职位，邀请你与2014年01月25日参加面试，地点为XXXX。\n如果有什么问题，请联系我。\n谢谢</string>
+    <string name="message_hint">请输入</string>
+    <string name="accept">接受</string>
 </resources>

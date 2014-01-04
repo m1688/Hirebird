@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:alpha="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/accept"
+        android:icon="@drawable/ic_action_accept"
+        alpha:showAsAction="always"
+        android:title="@string/accept">
+    </item>
+
+    <item
+        android:id="@+id/reply"
+        android:icon="@drawable/ic_action_reply"
+        alpha:showAsAction="always"
+        android:title="@string/reply">
+    </item>
+
+    <item
+        android:id="@+id/logout"
+        alpha:showAsAction="never"
+        android:title="@string/logout_action" >
+    </item>
+</menu>
