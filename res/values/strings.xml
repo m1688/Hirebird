@@ -16,8 +16,11 @@
     
 	<string name="drawer_close">隐藏菜单</string>
     <string name="drawer_open">打开菜单</string>
+
     <string name="def_sender_name">阿里马马</string>
     <string name="def_message_body">亲爱的XX\n\n非常感谢你投递该职位，邀请你与2014年01月25日参加面试，地点为XXXX。\n如果有什么问题，请联系我。\n谢谢</string>
     <string name="message_hint">请输入</string>
     <string name="accept">接受</string>
+    <string name="message">留言</string>
+    <string name="apply">申请</string>
 </resources>

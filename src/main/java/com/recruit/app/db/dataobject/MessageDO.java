@@ -1,13 +1,27 @@
-package com.recruit.app.domain.model;
+package com.recruit.app.db.dataobject;
 
+import android.content.ContentValues;
+
+import com.recruit.app.domain.model.MessageType;
+import com.recruit.app.util.DateUtil;
+
+import java.io.Serializable;
 import java.util.Date;
 
+import static com.recruit.app.db.tables.Message.ID;
+import static com.recruit.app.db.tables.Message.CONTENT;
+import static com.recruit.app.db.tables.Message.CREATED_DATE;
+import static com.recruit.app.db.tables.Message.RECEIVER_ID;
+import static com.recruit.app.db.tables.Message.RECEIVER_NAME;
+import static com.recruit.app.db.tables.Message.SENDER_ID;
+import static com.recruit.app.db.tables.Message.TYPE;
+import static com.recruit.app.db.tables.Message.SENDER_NAME;
+import static com.recruit.app.db.tables.Message.TITLE;
+
 /**
- * 消息模型
- * <p/>
- * jyu - 12/24/13.
+ * Created by jialiang.zoujl on 14-1-2.
  */
-public class Message {
+public class MessageDO implements Serializable {
 
     private Long id;
     private String title;
@@ -16,7 +30,7 @@ public class Message {
     private String senderName;
     private Long receiverId;
     private String receiverName;
-    private MessageType type;
+    private String type;
     private Date createdDate;
 
     public Long getId() {
@@ -75,11 +89,11 @@ public class Message {
         this.receiverName = receiverName;
     }
 
-    public MessageType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(MessageType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -89,5 +103,23 @@ public class Message {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    /**
+     * 将字段转换成CententValues
+     * @return
+     */
+    public ContentValues toContentValues() {
+        ContentValues cv = new ContentValues();
+        cv.put(ID, id);
+        cv.put(CONTENT, content);
+        cv.put(RECEIVER_ID, receiverId);
+        cv.put(RECEIVER_NAME, receiverName);
+        cv.put(SENDER_ID, senderId);
+        cv.put(SENDER_NAME, senderName);
+        cv.put(TITLE, title);
+        cv.put(CREATED_DATE, DateUtil.formatDateTime(createdDate));
+        cv.put(TYPE,type);
+        return cv;
     }
 }

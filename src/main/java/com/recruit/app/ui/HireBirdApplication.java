@@ -9,6 +9,8 @@ import android.app.Instrumentation;
 import android.content.Context;
 
 import com.github.kevinsawicki.http.HttpRequest;
+import com.recruit.app.db.RecruitSQLiteOpenHelper;
+import com.recruit.app.ui.main.SampleDatas;
 
 /**
  * Android Bootstrap application
@@ -46,6 +48,9 @@ public class HireBirdApplication extends Application {
 
         // Perform injection
         Injector.init(getRootModule(), this);
+
+        RecruitSQLiteOpenHelper.init(getApplicationContext());
+        SampleDatas.init();	//去掉注释生成例子数据，只需要生成一次即可，除非手动将数据库文件删掉了才需要再次生成
 
     }
 

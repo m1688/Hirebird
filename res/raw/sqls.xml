@@ -126,4 +126,19 @@
      )
      ]]>
     </sql>
+    <sql id="create_message">
+        <![CDATA[
+     create table if not exists message (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	TITLE			VARCHAR(64),
+     	CONTENT		    VARCHAR(128 ),
+     	SENDER_ID   	INTEGER,
+     	SENDER_NAME		VARCHAR(64),
+     	RECEIVER_ID		INTEGER,
+     	RECEIVER_NAME	VARCHAR(64),
+     	TYPE		    VARCHAR(64),
+     	CREATED_DATE    DATE
+     )
+     ]]>
+    </sql>
 </sqls>
