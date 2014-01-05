@@ -16,8 +16,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.recruit.R;
+import com.recruit.app.ui.common.SlidingMenuAdapterView.OnSlidingMenuItemSelectedListener;
 import com.recruit.app.ui.job.PostPositionFragment;
 
 /**
@@ -37,7 +39,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	/**
 	 * 菜单对应的Fragment从SlidingMenuItemBean的参数中传过去
 	 */
-	private void initMenuItems() {
+	protected void initMenuItems() {
 		menuItems.add(new SlidingMenuItemBean(R.string.begin_search, R.drawable.ic_menu_sample_icon, null, true));
 		menuItems.add(new SlidingMenuItemBean(R.string.search_record, R.drawable.ic_menu_sample_icon, null, true));
 		menuItems.add(new SlidingMenuItemBean(R.string.my_center, false));
@@ -49,7 +51,12 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		menuItems.add(new SlidingMenuItemBean(R.string.sys_setting, R.drawable.ic_menu_sample_icon, null, true));
 		menuItems.add(new SlidingMenuItemBean(R.string.suggestion, R.drawable.ic_menu_sample_icon, null, true));
 		menuItems.add(new SlidingMenuItemBean(R.string.about_us, R.drawable.ic_menu_sample_icon, null, true));
-		menuItems.add(new SlidingMenuItemBean(R.string.check_for_update, R.drawable.ic_menu_sample_icon, null, true));
+//		menuItems.add(new SlidingMenuItemBean(R.string.check_for_update, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.check_for_update, R.drawable.ic_menu_sample_icon, null, true, new OnSlidingMenuItemSelectedListener(){
+			public void onSlidingMenuItemSelected(View view, int position) {
+				Toast.makeText(getApplicationContext(), "The app is currently neweast", Toast.LENGTH_SHORT).show();
+			}
+		}));
 	}
 	
 	@Override
@@ -102,7 +109,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			selectItem(position);
+			selectItem(view, position);
 			int childCount = parent.getChildCount();
 			for(int i = 0; i < childCount; i++) {
 				View item = parent.getChildAt(i);
@@ -120,13 +127,17 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		}
 	}
 
-	private void selectItem(int position) {
+	private void selectItem(View view, int position) {
 		SlidingMenuItemBean slidingMenuItemBean = menuItems.get(position);
 		Fragment fragment = slidingMenuItemBean.getFragment();
 		if(fragment != null) {
 			FragmentManager fragmentManager = getSupportFragmentManager();
 			fragmentManager.beginTransaction()
 					.replace(R.id.content_frame, fragment, "content").commit();
+		}
+		OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener = slidingMenuItemBean.getOnSlidingMenuItemSelectedListener();
+		if(onSlidingMenuItemSelectedListener != null) {
+			onSlidingMenuItemSelectedListener.onSlidingMenuItemSelected(view, position);
 		}
 		setTitle(getResources().getString(slidingMenuItemBean.getMenuNameRes()));
 	}
