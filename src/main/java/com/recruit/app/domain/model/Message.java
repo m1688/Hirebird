@@ -13,6 +13,7 @@ public class Message {
     private String title;
     private String content;
     private Long senderId;
+    private Long positionId;
     private String senderName;
     private Long receiverId;
     private String receiverName;
@@ -89,5 +90,13 @@ public class Message {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Long getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(Long positionId) {
+        this.positionId = positionId;
     }
 }

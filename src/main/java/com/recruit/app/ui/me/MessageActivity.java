@@ -1,33 +1,54 @@
 package com.recruit.app.ui.me;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.recruit.R;
+import com.recruit.app.domain.model.Message;
 import com.recruit.app.ui.common.AbstractActivity;
-import com.recruit.app.ui.common.NavigationDrawerFragment;
 import com.recruit.app.ui.main.MainActivity;
-import com.squareup.picasso.Picasso;
+import com.recruit.app.util.JsonUtils;
+
+import java.io.IOException;
+
+import butterknife.InjectView;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
 
 /**
+ * 消息detail activity
+ * <p/>
  * jyu - 12/24/13.
  */
 public class MessageActivity extends AbstractActivity {
+
+    @InjectView(R.id.message_sender_name)
+    protected TextView senderName;
+
+    @InjectView(R.id.message_title)
+    protected TextView messageTitle;
+
+    @InjectView(R.id.message_content)
+    protected TextView messageContent;
+
+    private Message message;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        message = JsonUtils.readFromAsset(this, "sample.json", "message_sample", Message.class);
+
         setContentView(R.layout.message_activity);
+
+        senderName.setText(message.getSenderName());
+        messageTitle.setText(message.getTitle());
+        messageContent.setText(message.getContent());
 
 
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -54,9 +75,13 @@ public class MessageActivity extends AbstractActivity {
                 startActivity(homeIntent);
                 return true;
             case R.id.accept:
-
+              acceptInterview();
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void acceptInterview() {
+
     }
 }

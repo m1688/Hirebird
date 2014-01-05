@@ -1,0 +1,14 @@
+{
+  "message_sample": {
+     "id" : 1000,
+     "title" : "阿里马儿马邀请您参加Java攻城狮面试",
+     "content" : "亲爱的可儿可\n\n非常感谢你投递该职位，邀请你与2014年01月25日参加面试，地点为XXXX。\n如果有什么问题，请联系我。\n谢谢",
+     "senderId" : 1000,
+     "positionId" : 1000,
+     "senderName" : "阿里马儿马",
+     "receiverId" : 1000,
+     "receiverName" : "阿里可儿可",
+     "messageType" : ""
+  }
+
+}

@@ -30,6 +30,11 @@
             android:exported="true"/>
 
         <activity
+            android:name="com.recruit.app.ui.me.MessageListActivity"
+            android:label="@string/message_list_act_label"
+            android:exported="true"/>
+
+        <activity
             android:name="com.recruit.app.ui.job.PostJobActivity"
             android:label="postJob"/>
 

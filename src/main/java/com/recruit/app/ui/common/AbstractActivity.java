@@ -17,10 +17,10 @@ import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
  * Base activity  which does not use fragments.
  */
 public abstract class AbstractActivity extends ActionBarActivity {
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Injector.inject(this);
     }
 
