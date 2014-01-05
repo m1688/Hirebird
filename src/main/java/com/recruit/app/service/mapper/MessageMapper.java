@@ -13,13 +13,15 @@ import java.util.List;
 public class MessageMapper {
 
     public static MessageDO convertToDO(Message message) {
-        if(message == null){
+        if (message == null) {
             return null;
         }
 
         MessageDO messageDO = new MessageDO();
         messageDO.setSenderName(message.getSenderName());
-        messageDO.setType(message.getType().name());
+        if (message.getType() != null) {
+            messageDO.setType(message.getType().name());
+        }
         messageDO.setTitle(message.getTitle());
         messageDO.setSenderId(message.getSenderId());
         messageDO.setContent(message.getContent());
@@ -31,7 +33,7 @@ public class MessageMapper {
     }
 
     public static Message convertToModel(MessageDO messageDO) {
-        if(messageDO == null){
+        if (messageDO == null) {
             return null;
         }
 
@@ -49,12 +51,12 @@ public class MessageMapper {
     }
 
     public static List<Message> convertToModelList(List<MessageDO> messageDOList) {
-        if(messageDOList == null || messageDOList.isEmpty()){
+        if (messageDOList == null || messageDOList.isEmpty()) {
             return null;
         }
 
         List<Message> messageList = new ArrayList<Message>();
-        for(MessageDO messageDO : messageDOList){
+        for (MessageDO messageDO : messageDOList) {
             Message message = MessageMapper.convertToModel(messageDO);
             messageList.add(message);
         }

@@ -54,6 +54,8 @@ public class MessageActivity extends AbstractActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        startService(new Intent(this,PullMessageService.class));
+
     }
 
     @Override
@@ -83,5 +85,8 @@ public class MessageActivity extends AbstractActivity {
 
     private void acceptInterview() {
 
+       Message message = JsonUtils.readFromAsset(this, "sample.json", "accept_message_sample", Message.class);
+
+        startService(new Intent(this,MessageService.class).putExtra("message", message));
     }
 }

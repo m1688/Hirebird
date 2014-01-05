@@ -9,6 +9,17 @@
      "receiverId" : 1000,
      "receiverName" : "阿里可儿可",
      "messageType" : ""
-  }
+  },
+  "accept_message_sample": {
+       "id" : 1001,
+       "title" : "你的面试邀请已经接受",
+       "content" : "阿里马儿马接受Java攻城狮面试",
+       "senderId" : 1000,
+       "positionId" : 1000,
+       "senderName" : "阿里马儿马",
+       "receiverId" : 1000,
+       "receiverName" : "阿里可儿可",
+       "messageType" : ""
+    }
 
 }

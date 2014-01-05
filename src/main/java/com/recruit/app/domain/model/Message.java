@@ -1,5 +1,6 @@
 package com.recruit.app.domain.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date;
  * <p/>
  * jyu - 12/24/13.
  */
-public class Message {
+public class Message implements Serializable{
 
     private Long id;
     private String title;
@@ -19,6 +20,7 @@ public class Message {
     private String receiverName;
     private MessageType type;
     private Date createdDate;
+    private Boolean isRead;//是否已读
 
     public Long getId() {
         return id;
@@ -98,5 +100,13 @@ public class Message {
 
     public void setPositionId(Long positionId) {
         this.positionId = positionId;
+    }
+
+    public Boolean getIsRead() {
+        return isRead;
+    }
+
+    public void setIsRead(Boolean isRead) {
+        this.isRead = isRead;
     }
 }

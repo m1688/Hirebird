@@ -1,8 +1,12 @@
 package com.recruit.app.ui;
 
+import com.recruit.app.domain.model.Message;
 import com.recruit.app.ui.common.NavigationDrawerFragment;
 import com.recruit.app.ui.main.MainActivity;
 import com.recruit.app.ui.me.MessageActivity;
+import com.recruit.app.ui.me.MessageReceiver;
+import com.recruit.app.ui.me.MessageService;
+import com.recruit.app.ui.me.PullMessageService;
 import com.squareup.otto.Bus;
 
 import javax.inject.Singleton;
@@ -22,7 +26,10 @@ import dagger.Provides;
                         HireBirdApplication.class,
                         NavigationDrawerFragment.class,
                         MessageActivity.class,
-                        MainActivity.class
+                        MainActivity.class,
+                        MessageService.class,
+                        PullMessageService.class,
+                        MessageReceiver.class
                 }
 
         )

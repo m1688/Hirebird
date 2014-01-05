@@ -1,13 +1,26 @@
 package com.recruit.app.ui.me;
 
+import android.app.AlarmManager;
+import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 
+import com.recruit.R;
+import com.recruit.app.domain.model.Message;
+import com.recruit.app.service.factory.ServiceFactory;
 import com.recruit.app.ui.Injector;
 import com.recruit.app.util.Ln;
 import com.squareup.otto.Bus;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -36,7 +49,6 @@ public class MessageService extends Service {
 
         // Register the bus so we can send notifications.
         BUS.register(this);
-
     }
 
     @Override
@@ -55,8 +67,15 @@ public class MessageService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        if (intent.getExtras() != null) {
+            Message message = (Message) intent.getExtras().get("message");
+            ServiceFactory.getInstance().getMessageService().addMessage(message);
+        }
 
         return START_NOT_STICKY;
     }
+
+
+
 
 }

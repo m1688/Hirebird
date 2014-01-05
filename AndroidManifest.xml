@@ -38,6 +38,10 @@
             android:name="com.recruit.app.ui.job.PostJobActivity"
             android:label="postJob"/>
 
+        <service android:name=".app.ui.me.MessageService"/>
+        <service android:name=".app.ui.me.PullMessageService"/>
+        <receiver android:name=".app.ui.me.MessageReceiver"></receiver>
+
     </application>
 
 </manifest>
