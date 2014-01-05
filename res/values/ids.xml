@@ -3,4 +3,9 @@
     <item name="left_drawer" type="id"/>
     <item name="drawer_layout" type="id"/>
     <item name="action_bar_title" type="id"/>
+    <item name="my_header" type="id"/>
+    <item name="my_name" type="id"/>
+    <item name="my_desc" type="id"/>
+    <item name="menu_icon_view" type="id"/>
+    <item name="menu_name_view" type="id"/>
 </resources>
