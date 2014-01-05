@@ -7,4 +7,22 @@
     
 	<string name="drawer_close">隐藏菜单</string>
     <string name="drawer_open">打开菜单</string>
+    
+    <string name="header_content_desc">我的头像</string>
+    <string name="menu_icon_content_desc">菜单图标</string>
+    
+    
+    
+    <string name="begin_search">开始搜索</string>
+    <string name="search_record">搜索记录</string>
+    <string name="my_center">个人中心</string>
+    <string name="my_resume">我的简历</string>
+    <string name="my_message">我的消息</string>
+    <string name="my_position">我发的职位</string>
+    <string name="my_job">我投的职位</string>
+    <string name="system">系统</string>
+    <string name="sys_setting">系统设置</string>
+    <string name="suggestion">意见反馈</string>
+    <string name="about_us">关于我们</string>
+    <string name="check_for_update">检查更新</string>
 </resources>
