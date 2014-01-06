@@ -109,6 +109,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
+		    unSelectAll();
 			selectItem(view, position);
 			int childCount = parent.getChildCount();
 			for(int i = 0; i < childCount; i++) {
@@ -123,10 +124,16 @@ public class SlidingMenuActivity extends ActionBarActivity {
 					item.setBackgroundColor(getResources().getColor(R.color.menu_unselected));
 				}
 			}
+			menuItems.get(position).setSelected(true);
 			drawerLayout.closeDrawer(drawerFrame);
 		}
 	}
-
+	
+	private void unSelectAll() {
+	    for(int i = 0; i < menuItems.size(); i++) {
+	        menuItems.get(i).setSelected(false);
+	    }
+	}
 	private void selectItem(View view, int position) {
 		SlidingMenuItemBean slidingMenuItemBean = menuItems.get(position);
 		Fragment fragment = slidingMenuItemBean.getFragment();

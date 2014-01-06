@@ -18,6 +18,7 @@ class SlidingMenuItemBean {
 	private int iconDrawableRes;
 	private Fragment fragment;
 	private OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener;
+	private boolean isSelected;
 	
 	public SlidingMenuItemBean(int menuNameRes, int iconDrawableRes, Fragment fragment, boolean hasEvent) {
 		this.menuNameRes = menuNameRes;
@@ -85,4 +86,12 @@ class SlidingMenuItemBean {
 			OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener) {
 		this.onSlidingMenuItemSelectedListener = onSlidingMenuItemSelectedListener;
 	}
+    
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean isSelected) {
+        this.isSelected = isSelected;
+    }
 }
