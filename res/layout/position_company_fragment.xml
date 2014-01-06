@@ -1,7 +1,57 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/text1"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:textSize="24sp"
-    android:padding="32dp" />
+    android:layout_height="match_parent" 
+     android:orientation="vertical"
+    >
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:stretchColumns="0,1"
+        >
+	 <TableRow android:padding="3dp">  
+        <TextView android:id="@+id/company_name" android:text="阿里巴巴网络技术有限公司" android:layout_span="2" style="@style/textview_position_style" android:textStyle="bold" android:textSize="18sp"/>
+    </TableRow>  
+	 <TableRow android:padding="3dp">  
+        <TextView android:id="@+id/company_industry" android:text="互联网/电子商务" style="@style/textview_position_style" android:layout_span="2"/>  
+    </TableRow>  
+	 <TableRow android:padding="3dp" android:layout_margin="0.5dip">  
+        <TextView android:text="公司性质" style="@style/textview_position_style"/>  
+        <TextView android:id="@+id/company_type" android:text="独资" android:gravity="center" style="@style/textview_position_style"/>  
+    </TableRow>  
+	 <TableRow android:padding="3dp" android:layout_margin="0.5dip">  
+        <TextView android:text="公司规模" style="@style/textview_position_style"/>  
+        <TextView android:id="@+id/company_scale" android:text="http://www.1688.com" android:gravity="center" style="@style/textview_position_style"/>  
+    </TableRow>  
+	 <TableRow android:padding="3dp" android:layout_margin="0.5dip">  
+        <TextView android:text="公司地址" style="@style/textview_position_style"/>  
+        <TextView android:id="@+id/company_address" android:text="浙江省杭州市滨江区网商路699" android:gravity="center" style="@style/textview_position_style"/>  
+    </TableRow>  
+    <View
+        android:layout_height="2dip" 
+        android:background="#F00" /> 
+	 <TableRow android:padding="3dp">  
+        <TextView android:text="公司介绍" android:layout_span="2" android:textStyle="bold" style="@style/textview_position_style"/>  
+    </TableRow>  
+	 <TableRow android:padding="3dp">  
+        <TextView android:id="@+id/company_detail" android:text="公司详情" android:layout_span="2" style="@style/textview_position_style"/>  
+    </TableRow>  
+    </TableLayout>
+
+   <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        >
+        <Button
+            android:id="@+id/position_apply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:text="关注" >
+        </Button>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -35,7 +36,14 @@ public class PostPositionFragment extends Fragment {
 				R.layout.postion_list_item, 
 				new String[]{"name", "company", "address", "postDate"}, 
 				new int[]{R.id.positionName, R.id.companyName, R.id.address, R.id.postDate}));
-
+		listView.setOnItemClickListener(new ListView.OnItemClickListener(){
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
+				Intent intent = new Intent(PostPositionFragment.this.getActivity(), PositionDetailActivity.class);
+			    intent.putExtra("positionId", Long.valueOf(position));
+			    startActivity(intent);
+			}
+		});
 		setHasOptionsMenu(true);
 		
 		return view;
@@ -68,8 +76,6 @@ public class PostPositionFragment extends Fragment {
 
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-
-			
 		}
 		
 	}
