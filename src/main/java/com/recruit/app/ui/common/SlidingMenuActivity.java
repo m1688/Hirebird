@@ -1,9 +1,8 @@
 package com.recruit.app.ui.common;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -15,13 +14,13 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.recruit.R;
+import com.recruit.app.ui.common.SlidingMenuAdapterView.OnSlidingMenuItemSelectedListener;
 import com.recruit.app.ui.job.PostPositionFragment;
-import com.recruit.app.util.StringUtils;
 
 /**
  * 慢慢重构
@@ -29,24 +28,48 @@ import com.recruit.app.util.StringUtils;
  *
  */
 public class SlidingMenuActivity extends ActionBarActivity {
-	private static final Map<String, Object> menuMap = new HashMap<String, Object>();
 	private ActionBarDrawerToggle drawerToggle;
-	
+	private View drawerFrame;
 	protected ActionBar actionBar;
-	protected String[] menuTitls;
+	protected List<SlidingMenuItemBean> menuItems = new ArrayList<SlidingMenuItemBean>();
 	protected DrawerLayout drawerLayout;
 	protected ListView menuDrawerList;
 	protected TextView actionBarTitle;
-
+	
+	/**
+	 * 菜单对应的Fragment从SlidingMenuItemBean的参数中传过去
+	 */
+	protected void initMenuItems() {
+		menuItems.add(new SlidingMenuItemBean(R.string.begin_search, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.search_record, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.my_center, false));
+		menuItems.add(new SlidingMenuItemBean(R.string.my_resume, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.my_message, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.my_position, R.drawable.ic_menu_sample_icon, new PostPositionFragment(), true));
+		menuItems.add(new SlidingMenuItemBean(R.string.my_job, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.system, false));
+		menuItems.add(new SlidingMenuItemBean(R.string.sys_setting, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.suggestion, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.about_us, R.drawable.ic_menu_sample_icon, null, true));
+//		menuItems.add(new SlidingMenuItemBean(R.string.check_for_update, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.check_for_update, R.drawable.ic_menu_sample_icon, null, true, new OnSlidingMenuItemSelectedListener(){
+			public void onSlidingMenuItemSelected(View view, int position) {
+				Toast.makeText(getApplicationContext(), "The app is currently neweast", Toast.LENGTH_SHORT).show();
+			}
+		}));
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sliding_menu);
-		
+		initMenuItems();
 		actionBar = getSupportActionBar();
+		drawerFrame = findViewById(R.id.drawer_frame);
 		menuDrawerList = (ListView) findViewById(R.id.left_drawer);
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		menuTitls = new String[]{"发布职位","发布职位","发布职位"};
+		
+		
 		drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
 				R.drawable.ic_drawer, R.string.drawer_open,
 				R.string.drawer_close);
@@ -59,8 +82,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	}
 
 	private void initSlidingMenu() {
-		menuDrawerList.setAdapter(new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, menuTitls));
+		menuDrawerList.setAdapter(new SlidingMenuAdapterView(getApplicationContext(), R.layout.listitem_sliding_menu, menuItems));
 		menuDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 		
 	}
@@ -87,37 +109,37 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			selectItem(position);
+			selectItem(view, position);
 			int childCount = parent.getChildCount();
 			for(int i = 0; i < childCount; i++) {
 				View item = parent.getChildAt(i);
+				if(!item.isEnabled()) {
+					continue;
+				}
+				
 				if(item == view) {
-					item.setSelected(true);
 					item.setBackgroundColor(getResources().getColor(R.color.menu_selected));
 				} else {
-					item.setSelected(false);
 					item.setBackgroundColor(getResources().getColor(R.color.menu_unselected));
 				}
 			}
-			
+			drawerLayout.closeDrawer(drawerFrame);
 		}
 	}
 
-	private void selectItem(int position) {
-		switch (position) {
-		case 0:
-			break;
-		case 1:
-			break;
-		case 2:
-			PostPositionFragment positionFragment = new PostPositionFragment();
+	private void selectItem(View view, int position) {
+		SlidingMenuItemBean slidingMenuItemBean = menuItems.get(position);
+		Fragment fragment = slidingMenuItemBean.getFragment();
+		if(fragment != null) {
 			FragmentManager fragmentManager = getSupportFragmentManager();
 			fragmentManager.beginTransaction()
-					.replace(R.id.content_frame, positionFragment, "position").commit();
+					.replace(R.id.content_frame, fragment, "content").commit();
 		}
-		menuDrawerList.setItemChecked(position, true);
-		setTitle(menuTitls[position]);
-		drawerLayout.closeDrawer(menuDrawerList);
+		OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener = slidingMenuItemBean.getOnSlidingMenuItemSelectedListener();
+		if(onSlidingMenuItemSelectedListener != null) {
+			onSlidingMenuItemSelectedListener.onSlidingMenuItemSelected(view, position);
+		}
+		setTitle(getResources().getString(slidingMenuItemBean.getMenuNameRes()));
 	}
 
 	@Override
@@ -131,26 +153,5 @@ public class SlidingMenuActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-	
-	public static void addMenu(String menuTitle, Fragment fragment) {
-		if(StringUtils.isBlank(menuTitle)) {
-			throw new IllegalArgumentException("menu title connot be null or empty");
-		}
-		if(fragment == null) {
-			throw new IllegalArgumentException("fragment connot be null");
-		}
-		
-		menuMap.put(menuTitle, fragment);
-	}
-	
-	public static void addMenu(String menuTitle, Intent activityStartIntent) {
-		if(StringUtils.isBlank(menuTitle)) {
-			throw new IllegalArgumentException("menu title connot be null or empty");
-		}
-		if(activityStartIntent == null) {
-			throw new IllegalArgumentException("intent connot be null");
-		}
-		menuMap.put(menuTitle, activityStartIntent);
 	}
 }
