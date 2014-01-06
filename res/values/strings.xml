@@ -7,8 +7,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="tab_position">职位详情</string>
     <string name="tab_company">公司信息</string>
-	<string name="drawer_close">隐藏菜单</string>
-    <string name="drawer_open">打开菜单</string>
     <string name="search_hint">搜索职位或公司</string>
 
 	<string name="drawer_close">隐藏菜单</string>
