@@ -1,0 +1,125 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/activity_background">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="120sp"
+        android:background="@drawable/shadow"
+        android:layout_marginTop="15dp"
+        android:padding="3dp">
+
+        <!--头像-->
+        <com.recruit.app.ui.common.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/message_sender_icon"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_user_default"
+            android:scaleType="centerCrop"
+            app:corner_radius="10dip"
+            app:border_width="1dip"
+            app:border_color="@color/image_radius"
+            app:round_background="true" />
+
+        <!--发送者名称-->
+        <TextView
+            android:id="@+id/message_sender_name"
+            android:layout_height="20sp"
+            android:layout_width="80sp"
+            android:padding="3sp"
+            android:layout_marginBottom="10sp"
+            android:textColor="@color/table_text_selector"
+            android:text="@string/def_sender_name"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="12sp"
+            android:background="@color/activity_background" />
+
+        <!--标题-->
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_toRightOf="@id/message_sender_icon"
+            android:text="@string/def_message_title"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"
+            android:paddingLeft="20sp"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            android:textSize="16sp" />
+
+        <!--时间-->
+        <TextView
+            android:id="@+id/message_created_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:layout_toRightOf="@id/message_sender_icon"
+            android:textColor="@color/table_text_selector"
+            android:layout_marginTop="65sp"
+            android:paddingRight="5sp"
+            android:text="2013年12月19日 13点14"
+            android:textStyle="italic"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+
+    <!--消息主体-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15sp">
+
+        <TextView
+            android:id="@+id/message_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15sp"
+            android:paddingTop="15sp"
+            android:paddingRight="15sp"
+            android:paddingBottom="25sp"
+            android:background="@color/title_background"
+            android:text="@string/def_message_body"
+            android:lineSpacingExtra="5sp" />
+
+    </LinearLayout>
+
+    <!--回复留言
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5sp"
+        android:layout_marginTop="15sp"
+        android:background="@color/title_background">
+
+        <Button
+            android:id="@+id/message_send_button"
+            android:layout_width="60sp"
+            android:layout_height="wrap_content"
+            android:text="@string/reply"
+            android:clickable="true"
+            android:textSize="14sp"
+            android:background="@color/button_background_pressed_end"/>
+
+        <EditText
+            android:id="@+id/message_reply"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:hint="@string/message_hint"
+            android:padding="5sp"
+            android:textSize="16sp"
+            android:background="@color/activity_background"
+            android:layout_marginLeft="2sp"
+            />
+
+    </LinearLayout>-->
+
+</LinearLayout>

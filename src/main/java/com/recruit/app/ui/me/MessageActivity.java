@@ -2,19 +2,15 @@ package com.recruit.app.ui.me;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.recruit.R;
 import com.recruit.app.domain.model.Message;
-import com.recruit.app.ui.common.AbstractActivity;
+import com.recruit.app.ui.common.AbstractFragmentActivity;
 import com.recruit.app.ui.main.MainActivity;
 import com.recruit.app.util.JsonUtils;
-
-import java.io.IOException;
-
-import butterknife.InjectView;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
@@ -24,37 +20,24 @@ import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
  * <p/>
  * jyu - 12/24/13.
  */
-public class MessageActivity extends AbstractActivity {
+public class MessageActivity extends AbstractFragmentActivity {
 
-    @InjectView(R.id.message_sender_name)
-    protected TextView senderName;
-
-    @InjectView(R.id.message_title)
-    protected TextView messageTitle;
-
-    @InjectView(R.id.message_content)
-    protected TextView messageContent;
-
-    private Message message;
-
+    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        message = JsonUtils.readFromAsset(this, "sample.json", "message_sample", Message.class);
-
-        setContentView(R.layout.message_activity);
-
-        senderName.setText(message.getSenderName());
-        messageTitle.setText(message.getTitle());
-        messageContent.setText(message.getContent());
-
-
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        startService(new Intent(this,PullMessageService.class));
+        setContentView(R.layout.message_activity);
+
+        MessagePagerAdapter messagePagerAdapter = new MessagePagerAdapter(getSupportFragmentManager());
+
+        mViewPager = (ViewPager) findViewById(R.id.message_pager);
+
+        mViewPager.setAdapter(messagePagerAdapter);
 
     }
 
@@ -77,7 +60,7 @@ public class MessageActivity extends AbstractActivity {
                 startActivity(homeIntent);
                 return true;
             case R.id.accept:
-              acceptInterview();
+                acceptInterview();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -85,8 +68,8 @@ public class MessageActivity extends AbstractActivity {
 
     private void acceptInterview() {
 
-       Message message = JsonUtils.readFromAsset(this, "sample.json", "accept_message_sample", Message.class);
+        Message message = JsonUtils.readFromAsset(this, "sample.json", "accept_message_sample", Message.class);
 
-        startService(new Intent(this,MessageService.class).putExtra("message", message));
+        startService(new Intent(this, MessageService.class).putExtra("message", message));
     }
 }

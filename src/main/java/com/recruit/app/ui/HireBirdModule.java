@@ -1,6 +1,5 @@
 package com.recruit.app.ui;
 
-import com.recruit.app.domain.model.Message;
 import com.recruit.app.ui.common.NavigationDrawerFragment;
 import com.recruit.app.ui.main.MainActivity;
 import com.recruit.app.ui.me.MessageActivity;
