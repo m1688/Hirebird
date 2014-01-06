@@ -10,7 +10,7 @@ import com.recruit.app.service.sqlite.SQLiteResumeService;
 import com.recruit.app.service.sqlite.SQLiteUserService;
 import com.recruit.app.service.sqlite.SQLiteWorkExpService;
 
-class SQLiteServiceFactory extends ServiceFactory {
+public class SQLiteServiceFactory extends ServiceFactory {
 	public SQLiteServiceFactory() {
 		positionService = new SQLitePositionService();
 		companyService = new SQLiteCompanyService();

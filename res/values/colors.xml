@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <resources> 
-	<color name="menu_selected">#1E90FF</color>
+	<color name="menu_selected">#EE9A49</color>
 	<color name="menu_unselected">#FFFFFF</color>
 	<color name="menu_pannel">#FFFFFF</color>
+	<color name="header_bg">#F5DEB3</color>
+	<color name="desc_color">#8B7E66</color>
+	<color name="menu_text_color">#6E8B3D</color>
 </resources>

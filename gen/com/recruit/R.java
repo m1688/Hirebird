@@ -24,14 +24,39 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int drawer_shadow=0x7f020000;
+        public static final int ic_action_about=0x7f020001;
+        public static final int ic_action_accept=0x7f020002;
+        public static final int ic_action_attachment=0x7f020003;
+        public static final int ic_action_back=0x7f020004;
+        public static final int ic_action_cancel=0x7f020005;
+        public static final int ic_action_discard=0x7f020006;
+        public static final int ic_action_favorite=0x7f020007;
+        public static final int ic_action_help=0x7f020008;
+        public static final int ic_action_important=0x7f020009;
+        public static final int ic_action_new_event=0x7f02000a;
+        public static final int ic_action_overflow=0x7f02000b;
+        public static final int ic_action_picture=0x7f02000c;
+        public static final int ic_action_read=0x7f02000d;
+        public static final int ic_action_remove=0x7f02000e;
+        public static final int ic_action_save=0x7f02000f;
+        public static final int ic_action_search=0x7f020010;
+        public static final int ic_action_settings=0x7f020011;
+        public static final int ic_action_share=0x7f020012;
+        public static final int ic_action_unread=0x7f020013;
+        public static final int ic_drawer=0x7f020014;
+        public static final int ic_launcher=0x7f020015;
     }
     public static final class id {
-        public static final int action_settings=0x7f060001;
+        public static final int action_settings=0x7f060003;
+        public static final int search_input=0x7f060001;
+        public static final int search_listview=0x7f060002;
         public static final int snack=0x7f060000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int activity_search=0x7f030001;
+        public static final int activity_searchlist=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -40,6 +65,7 @@ public final class R {
         public static final int action_settings=0x7f070001;
         public static final int app_name=0x7f070000;
         public static final int hello_world=0x7f070002;
+        public static final int search_hint=0x7f070003;
     }
     public static final class style {
         /** 
@@ -68,5 +94,8 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
+        /**  按钮 
+         */
+        public static final int common_button=0x7f080002;
     }
 }

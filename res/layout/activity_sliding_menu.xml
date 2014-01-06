@@ -9,13 +9,65 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
     <!-- The navigation drawer -->
-    <ListView android:id="@id/left_drawer"
-        android:layout_width="180dp"
+    
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer_frame"
+        android:orientation="vertical"
+        android:layout_width="220dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-        android:background="@color/menu_pannel"
-        android:listSelector="@color/menu_selected"/>
+        android:background="@color/menu_pannel" >
+        <RelativeLayout
+	        android:id="@+id/header_layout"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="start"
+	        android:background="@color/header_bg" >
+	        <ImageView
+	            android:id="@id/my_header"
+	            android:paddingLeft="15dp"
+		        android:paddingTop="10dp"
+		        android:paddingRight="10dp"
+		        android:paddingBottom="10dp"
+	            android:layout_width="80dp"
+	        	android:layout_height="80dp"
+	        	android:layout_alignParentTop="true"
+	        	android:layout_alignParentLeft="true"
+	        	android:scaleType="fitCenter"
+	        	android:src="@drawable/ic_my_header"
+	        	android:contentDescription="@null"
+	        	/>
+	        <TextView
+	            android:id="@id/my_name"
+	            android:layout_width="120dp"
+	            android:layout_height="40dp"
+	            android:layout_toRightOf="@id/my_header"
+	            android:paddingTop="10dp"
+	            android:textSize="@dimen/name_size"
+	            android:gravity="center"
+	            android:text="欧阳峰"
+	            />
+	        
+	        <TextView
+	            android:id="@id/my_desc"
+	            android:layout_width="120dp"
+	            android:layout_height="36dp"
+	            android:layout_toRightOf="@id/my_header"
+	            android:layout_below="@id/my_name"
+	            android:textSize="@dimen/desc_size"
+	            android:textColor="@color/desc_color"
+	            android:gravity="center"
+	            android:text="蛤蟆功创始人,欢迎加入我司"
+	            />
+        </RelativeLayout>
+	    <ListView
+	        android:id="@id/left_drawer"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:choiceMode="singleChoice"
+	        android:divider="@android:color/transparent"
+	        android:dividerHeight="0dp"/>
+    </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
