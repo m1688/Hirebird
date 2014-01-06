@@ -48,8 +48,12 @@ public class SlidingMenuAdapterView extends ArrayAdapter<SlidingMenuItemBean> {
 			nameView.setPadding(15, 0, 0, 0);
 		}
 		
-		//在这里将所有元素的背景色复原，如果只是在SlidingMenuActivity.DrawerItemClickListener中做的话，隐藏的那部分item的背景色不会改变
-		view.setBackgroundColor(view.getResources().getColor(R.color.menu_unselected));
+		//这里也做一次背景色调整，如果只是在SlidingMenuActivity.DrawerItemClickListener中做的话，隐藏的那部分item的背景色不会改变
+        if(item.isSelected()) {
+            view.setBackgroundColor(view.getResources().getColor(R.color.menu_selected));
+        } else {
+            view.setBackgroundColor(view.getResources().getColor(R.color.menu_unselected));
+        }
 		return view;
 	}
 	
