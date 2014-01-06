@@ -39,6 +39,8 @@ public class MessageActivity extends AbstractFragmentActivity {
 
         mViewPager.setAdapter(messagePagerAdapter);
 
+        startService(new Intent(this,PullMessageService.class));
+
     }
 
     @Override
