@@ -71,7 +71,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		
 		
 		drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
-				R.drawable.ic_drawer, R.string.drawer_open,
+				R.drawable.ic_navigation_drawer, R.string.drawer_open,
 				R.string.drawer_close);
 		
 		
@@ -95,11 +95,11 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		View view = getLayoutInflater()
 				.inflate(R.layout.actionbar_title, null);
 		actionBarTitle = (TextView) view.findViewById(R.id.action_bar_title);
-		actionBar.setCustomView(view, lp);
-		actionBar.setDisplayShowHomeEnabled(false);
-		actionBar.setDisplayShowCustomEnabled(true);
+//		actionBar.setCustomView(view, lp);
+		actionBar.setDisplayHomeAsUpEnabled(true);
+//		actionBar.setDisplayShowCustomEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
-		actionBar.setLogo(R.drawable.ic_drawer2);
+//		actionBar.setLogo(R.drawable.ic_drawer2);
 		actionBar.setDisplayShowHomeEnabled(true);// show button
 		actionBar.setHomeButtonEnabled(true);// enable button
 	}

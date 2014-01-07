@@ -1,5 +1,15 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <style name="Recruit.Theme.AppCompat.Light" parent="Theme.AppCompat.Light">
     	<item name="displayOptions">showHome|useLogo</item>
 	</style>
+	
+    <style name="Recruit.Position.Item" parent="Theme.AppCompat.Light">
+        <item name="android:padding">5dp</item>
+    </style>
+    <style name="Recruit.Position.Item.Title">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="Recruit.Position.Item.Content">
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>
