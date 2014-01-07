@@ -16,7 +16,7 @@ public class JsonUtils {
 
     private static Gson gson = new Gson();
 
-    public static <T> T readFromAsset(Context context,String fileName, String xpath, Class<T> clazz){
+    public static <T> T readModel(Context context, String fileName, String xpath, Class<T> clazz){
         InputStream is = null;
         try {
             is = context.getAssets().open(fileName);
@@ -34,4 +34,5 @@ public class JsonUtils {
         }
 
     }
+
 }

@@ -33,7 +33,7 @@ public class PullMessageService extends Service {
         PendingIntent pendIntent = PendingIntent.getBroadcast(this,
                 requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         long triggerAtTime = SystemClock.elapsedRealtime() + 5 * 1000;
-        alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME, triggerAtTime, 5 * 1000, pendIntent);
+        alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME, triggerAtTime, 15 * 1000, pendIntent);
     }
 
 

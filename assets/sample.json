@@ -22,12 +22,23 @@
        "messageType" : ""
     },
   "accept_message_sample": {
-       "id" : 1002,
+       "id" : 1000002,
        "title" : "你的面试邀请已经接受",
-       "content" : "阿里马儿马接受Java攻城狮面试",
+       "content" : "阿里卡可卡接受Java攻城狮面试",
        "senderId" : 1000,
        "positionId" : 1000,
-       "senderName" : "阿里马儿马",
+       "senderName" : "阿里萨达姆",
+       "receiverId" : 1002,
+       "receiverName" : "阿里卡可卡",
+       "messageType" : ""
+    },
+  "notification_message_sample": {
+       "id" : 1003,
+       "title" : "你的面试邀请已经通过",
+       "content" : "阿里马儿马Java攻城狮面试通过",
+       "senderId" : 1000,
+       "positionId" : 1000,
+       "senderName" : "阿里猪儿猪",
        "receiverId" : 1000,
        "receiverName" : "阿里可儿可",
        "messageType" : ""

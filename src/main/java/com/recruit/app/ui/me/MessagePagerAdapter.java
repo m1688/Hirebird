@@ -5,6 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.recruit.app.domain.model.Message;
+
+import java.util.List;
+
 import butterknife.InjectView;
 
 /**
@@ -13,22 +17,26 @@ import butterknife.InjectView;
 public class MessagePagerAdapter extends FragmentStatePagerAdapter {
 
 
-    public MessagePagerAdapter(FragmentManager fm) {
+    private List<Message> messages;
+
+    public MessagePagerAdapter(FragmentManager fm, List<Message> messages) {
         super(fm);
+        this.messages = messages;
     }
 
     @Override
     public Fragment getItem(int i) {
+
         Fragment fragment = new MessageFragment();
+
         Bundle args = new Bundle();
-        // Our object is just an integer :-P
-        args.putInt("message", i + 1);
+        args.putSerializable("message", messages.get(i));
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return messages.size();
     }
 }

@@ -2,6 +2,9 @@ package com.recruit.app.ui.me;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.Loader;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,8 +12,14 @@ import android.view.MenuItem;
 import com.recruit.R;
 import com.recruit.app.domain.model.Message;
 import com.recruit.app.ui.common.AbstractFragmentActivity;
+import com.recruit.app.ui.common.ThrowableLoader;
 import com.recruit.app.ui.main.MainActivity;
 import com.recruit.app.util.JsonUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
@@ -20,9 +29,10 @@ import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
  * <p/>
  * jyu - 12/24/13.
  */
-public class MessageActivity extends AbstractFragmentActivity {
+public class MessageActivity extends AbstractFragmentActivity implements LoaderManager.LoaderCallbacks<List<Message>> {
 
-    ViewPager mViewPager;
+    private ViewPager mViewPager;
+    private List<Message> messageList = new ArrayList<Message>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +43,12 @@ public class MessageActivity extends AbstractFragmentActivity {
 
         setContentView(R.layout.message_activity);
 
-        MessagePagerAdapter messagePagerAdapter = new MessagePagerAdapter(getSupportFragmentManager());
-
         mViewPager = (ViewPager) findViewById(R.id.message_pager);
 
-        mViewPager.setAdapter(messagePagerAdapter);
+        getSupportLoaderManager().initLoader(0, null, this);
 
-        startService(new Intent(this,PullMessageService.class));
+
+        startService(new Intent(this, PullMessageService.class));
 
     }
 
@@ -48,6 +57,20 @@ public class MessageActivity extends AbstractFragmentActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.message, menu);
         return true;
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        messageList = Arrays.asList((Message) intent.getSerializableExtra("message"));
+        MessagePagerAdapter messagePagerAdapter = new MessagePagerAdapter(getSupportFragmentManager(),
+                messageList);
+
+        mViewPager.setAdapter(messagePagerAdapter);
+
+
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(MessageActivity.class);
     }
 
     @Override
@@ -70,8 +93,40 @@ public class MessageActivity extends AbstractFragmentActivity {
 
     private void acceptInterview() {
 
-        Message message = JsonUtils.readFromAsset(this, "sample.json", "accept_message_sample", Message.class);
+        Message message = JsonUtils.readModel(this, "sample.json", "accept_message_sample", Message.class);
 
         startService(new Intent(this, MessageService.class).putExtra("message", message));
+    }
+
+
+    @Override
+    public Loader<List<Message>> onCreateLoader(int i, Bundle bundle) {
+        return new ThrowableLoader<List<Message>>(this, messageList) {
+
+            @Override
+            public List<Message> loadData() throws Exception {
+                if (getContext() != null) {
+                    final List<Message> messages = new ArrayList<Message>();
+                    messages.add(JsonUtils.readModel(getContext(), "sample.json", "message_sample_1", Message.class));
+                    messages.add(JsonUtils.readModel(getContext(), "sample.json", "message_sample_2", Message.class));
+                    return messages;
+                } else {
+                    return Collections.emptyList();
+                }
+            }
+        };
+    }
+
+    @Override
+    public void onLoadFinished(Loader<List<Message>> listLoader, List<Message> messages) {
+
+        MessagePagerAdapter messagePagerAdapter = new MessagePagerAdapter(getSupportFragmentManager(), messages);
+
+        mViewPager.setAdapter(messagePagerAdapter);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<List<Message>> listLoader) {
+        //mViewPager.setAdapter(null);
     }
 }

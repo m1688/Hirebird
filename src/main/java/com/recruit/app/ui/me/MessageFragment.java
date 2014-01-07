@@ -20,7 +20,6 @@ import butterknife.InjectView;
  */
 public class MessageFragment extends Fragment {
 
-    private Message message;
 
     public MessageFragment(){
     }
@@ -34,9 +33,11 @@ public class MessageFragment extends Fragment {
                 R.layout.message_detail, container, false);
 
         Bundle argument = getArguments();
+        Message message = (Message)argument.getSerializable("message");
 
-        message = JsonUtils.readFromAsset(getActivity(), "sample.json", "message_sample_"
-                + argument.getInt("message"), Message.class);
+        if(message == null || rootView == null){
+           return rootView;
+        }
 
         TextView senderName = (TextView)rootView.findViewById(R.id.message_sender_name);
         senderName.setText(message.getSenderName());

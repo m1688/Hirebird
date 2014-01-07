@@ -27,7 +27,8 @@
         <activity
             android:name="com.recruit.app.ui.me.MessageActivity"
             android:label="@string/message_act_label"
-            android:exported="true"/>
+            android:exported="true"
+            android:launchMode="singleTop"/>
 
         <activity
             android:name="com.recruit.app.ui.me.MessageListActivity"
@@ -40,7 +41,7 @@
 
         <service android:name=".app.ui.me.MessageService"/>
         <service android:name=".app.ui.me.PullMessageService"/>
-        <receiver android:name=".app.ui.me.MessageReceiver"></receiver>
+        <receiver android:name=".app.ui.me.MessageReceiver"/>
 
     </application>
 
