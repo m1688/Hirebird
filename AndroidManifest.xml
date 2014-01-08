@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="10"
+        android:minSdkVersion="11"
         android:targetSdkVersion="16" />
 
     <application
@@ -38,7 +38,8 @@
         
 
         <activity android:name="com.recruit.app.ui.job.PostJobActivity"
-            android:label="postJob">
+            android:parentActivityName="com.recruit.app.ui.main.MainActivity"
+            android:label="@string/post_jos">
             
         </activity>
 

@@ -21,4 +21,13 @@
     <string name="suggestion">意见反馈</string>
     <string name="about_us">关于我们</string>
     <string name="check_for_update">检查更新</string>
+    
+    <string name="save">确定</string>
+    <string name="cancel">取消</string>
+    
+    <string name="post_jos">发布职位</string>
+    
+    <string name="post_job_company">公司信息</string>
+    <string name="post_job_job">职位信息</string>
+
 </resources>

@@ -1,76 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:padding="10dip" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableRow
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/post_job_label_job_location" />
+        android:background="@drawable/shape_top_corner_no_bottom_line"
+        android:padding="10dip" >
 
-    <EditText
-        android:id="@+id/workLocation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" >
-        <requestFocus />
-    </EditText>
+        <TextView
+            style="@style/Recruit.Position.Item.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_job_label_job_location" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_job_label_work_year" />
-
-    <EditText
-        android:id="@+id/workYear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_job_label_salary" />
-
-    <EditText
-        android:id="@+id/workSalary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />
-    
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_job_label_education" />
-
-    <EditText
-        android:id="@+id/educationLevel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />  
         
-     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_job_label_job_function" />
+        <EditText
+            android:id="@+id/workLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" >
 
-    <EditText
-        android:id="@+id/jobFunction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />
+            <requestFocus />
+        </EditText>
+    </TableRow>
 
-    <Button
-        android:id="@+id/previousBtn"
-        android:layout_width="wrap_content"
+    <TableRow
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="上一步" />
+        android:background="@drawable/shape_no_corner_without_bottom"
+        android:padding="10dip" >
 
-    <Button
-        android:id="@+id/saveBtn"
-        android:layout_width="wrap_content"
+        <TextView
+            style="@style/Recruit.Position.Item.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_job_label_work_year" />
+
+        <EditText
+            android:id="@+id/workYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="完成" />
+        android:background="@drawable/shape_no_corner_without_bottom"
+        android:padding="10dip" >
 
-</LinearLayout>
+        <TextView
+            style="@style/Recruit.Position.Item.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_job_label_salary" />
+
+        <EditText
+            android:id="@+id/workSalary"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_no_corner_without_bottom"
+        android:padding="10dip" >
+
+        <TextView
+            style="@style/Recruit.Position.Item.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_job_label_education" />
+
+        <EditText
+            android:id="@+id/educationLevel"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bottom_corner_no_top_line"
+        android:padding="10dip" >
+
+        <TextView
+            style="@style/Recruit.Position.Item.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/post_job_label_job_function" />
+
+        <EditText
+            android:id="@+id/jobFunction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|top"
+            android:inputType="textMultiLine"
+            android:minLines="10" />
+    </TableRow>
+
+</TableLayout>

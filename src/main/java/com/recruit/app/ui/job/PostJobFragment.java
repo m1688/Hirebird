@@ -6,7 +6,4 @@ import com.recruit.app.domain.model.PositionModel;
 
 public class PostJobFragment extends Fragment {
 	protected static PositionModel position = new PositionModel();
-	
-	
-	
 }

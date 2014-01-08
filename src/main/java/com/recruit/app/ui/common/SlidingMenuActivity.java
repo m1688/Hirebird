@@ -77,7 +77,6 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		
 		initActionBar();
 		initSlidingMenu();
-
 		drawerLayout.setDrawerListener(drawerToggle);
 	}
 
@@ -98,7 +97,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 //		actionBar.setCustomView(view, lp);
 		actionBar.setDisplayHomeAsUpEnabled(true);
 //		actionBar.setDisplayShowCustomEnabled(true);
-		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setDisplayShowTitleEnabled(true);
 //		actionBar.setLogo(R.drawable.ic_drawer2);
 		actionBar.setDisplayShowHomeEnabled(true);// show button
 		actionBar.setHomeButtonEnabled(true);// enable button
@@ -152,6 +151,12 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	@Override
 	public void setTitle(CharSequence title) {
 		actionBarTitle.setText(title);
+	}
+	
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+		drawerToggle.syncState();
 	}
 
 	@Override
