@@ -18,14 +18,12 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 		<activity
             android:name="com.recruit.app.ui.search.SearchActivity"
             android:label="@string/app_name" >
-
         </activity>
         
         
@@ -40,7 +38,10 @@
         <activity android:name="com.recruit.app.ui.job.PostJobActivity"
             android:parentActivityName="com.recruit.app.ui.main.MainActivity"
             android:label="@string/post_jos">
-            
+        </activity>
+        <activity android:name="com.recruit.app.ui.job.PositionDetailActivity"
+            android:parentActivityName="com.recruit.app.ui.main.MainActivity"
+            android:label="jobDetail">
         </activity>
 
     </application>
