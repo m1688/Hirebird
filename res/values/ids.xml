@@ -1,8 +1,8 @@
 <resources>
+    <item name="position_info_f" type="id"/>
     <item name="snack" type="id"/>
     <item name="search_input" type="id"/>
     <item name="search_listview" type="id"/>
-
     <item name="content_frame" type="id"/>
     <item name="left_drawer" type="id"/>
     <item name="drawer_layout" type="id"/>

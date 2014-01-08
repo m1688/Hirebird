@@ -49,7 +49,6 @@ public class PostJobJobFragment extends PostJobFragment {
 
 		rootView.findViewById(R.id.previousBtn).setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View v) {
 				FragmentManager fm = activity.getSupportFragmentManager();
 				FragmentTransaction ft = fm.beginTransaction();
@@ -67,7 +66,6 @@ public class PostJobJobFragment extends PostJobFragment {
 		});
 		
 		rootView.findViewById(R.id.saveBtn).setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View v) {
 
 				retrieveValue();

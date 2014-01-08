@@ -44,6 +44,7 @@ public class SampleDatas {
     public static void addPosition() {
         for (int i = 1; i < 30; i++) {
             PositionDO position = new PositionDO();
+            position.setId(i);
             Company company = new Company();
             company.setId(i);
             position.setCompany(i);

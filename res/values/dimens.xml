@@ -6,7 +6,6 @@
 	
     <dimen name="header_height">60dp</dimen>
     <dimen name="header_width">60dp</dimen>
-    <dimen name="header_width">60dp</dimen>
     <dimen name="header_padding_left">15dp</dimen>
     <dimen name="header_padding_top">10dp</dimen>
     <dimen name="name_size">22dp</dimen>

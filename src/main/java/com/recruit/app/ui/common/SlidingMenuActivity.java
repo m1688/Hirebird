@@ -106,7 +106,6 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	
 	private class DrawerItemClickListener implements
 			ListView.OnItemClickListener {
-		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 		    unSelectAll();

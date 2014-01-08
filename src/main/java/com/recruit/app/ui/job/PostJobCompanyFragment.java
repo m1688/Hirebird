@@ -55,7 +55,6 @@ public class PostJobCompanyFragment extends PostJobFragment {
 		activity = getActivity();
 		
 		rootView.findViewById(R.id.nextStepBtn).setOnClickListener(new OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				retrieveValue();
 				FragmentManager fm = activity.getSupportFragmentManager();
