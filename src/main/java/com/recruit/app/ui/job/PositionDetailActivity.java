@@ -49,7 +49,7 @@ public class PositionDetailActivity extends FragmentActivity implements
 
 		final ActionBar actionBar = getActionBar();
 
-		actionBar.setHomeButtonEnabled(true);
+		//actionBar.setHomeButtonEnabled(true);
 		actionBar.setDisplayHomeAsUpEnabled(true);
 
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

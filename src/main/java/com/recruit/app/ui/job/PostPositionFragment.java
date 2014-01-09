@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Random;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -32,6 +33,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.recruit.R;
+import com.recruit.app.ui.main.MainActivity;
 
 /**
  * 发布职位
@@ -45,6 +47,7 @@ public class PostPositionFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_post_position, container, false);
 		ListView listView = (ListView)view.findViewById(R.id.testList);
 		listView.setAdapter(new ListItemAdaptor(getActivity()));
+		listView.setOnItemClickListener(new PositionListListener());
 		setHasOptionsMenu(true);
 		return view;
 	}
@@ -79,19 +82,16 @@ public class PostPositionFragment extends Fragment {
 		public ListItemAdaptor(Context context){
 			inflater = LayoutInflater.from(context);
 		}
-		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
 			return list.size();
 		}
 
-		@Override
 		public Object getItem(int position) {
 			// TODO Auto-generated method stub
 			return null;
 		}
 
-		@Override
 		public long getItemId(int position) {
 			// TODO Auto-generated method stub
 			return 0;
@@ -114,7 +114,6 @@ public class PostPositionFragment extends Fragment {
 		    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, metrics);
 		}
 		
-		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			if(convertView == null) {
 				convertView = inflater.inflate(R.layout.postion_list_item, null);
@@ -158,10 +157,13 @@ public class PostPositionFragment extends Fragment {
 
 	public static class PositionListListener implements ListView.OnItemClickListener{
 
-		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-
+			Intent intent = new Intent();  
+            intent.putExtra("positionId", Long.valueOf(position));  
+            intent.setClass(view.getContext(),PositionDetailActivity.class);  
+            //直接启动一个Activity  
+            view.getContext().startActivity(intent);  
 			
 		}
 		
