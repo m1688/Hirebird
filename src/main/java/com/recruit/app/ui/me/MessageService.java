@@ -11,9 +11,12 @@ import com.recruit.app.ui.Injector;
 import com.recruit.app.util.Ln;
 import com.squareup.otto.Bus;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 import javax.inject.Inject;
 
 /**
+ * 消息处理Service
  * jyu - 1/5/14.
  */
 public class MessageService extends Service {
@@ -24,6 +27,8 @@ public class MessageService extends Service {
     NotificationManager notificationManager;
 
     public static final int MESSAGE_NOTIFICATION_ID = 1000;
+
+    private AtomicInteger idGen=new AtomicInteger();
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -38,6 +43,8 @@ public class MessageService extends Service {
 
         // Register the bus so we can send notifications.
         BUS.register(this);
+
+        Ln.e("msg service onCreate");
     }
 
     @Override
@@ -48,7 +55,7 @@ public class MessageService extends Service {
 
         notificationManager.cancel(MESSAGE_NOTIFICATION_ID);
 
-        Ln.d("Service has been destroyed");
+        Ln.e("Service has been destroyed");
 
         super.onDestroy();
     }
@@ -58,11 +65,16 @@ public class MessageService extends Service {
 
         if (intent.getExtras() != null) {
             Message message = (Message) intent.getExtras().get("message");
+            message.setId(1000002L+idGen.getAndIncrement());
             long id = ServiceFactory.getInstance().getMessageService().addMessage(message);
             if (id <= 0) {
                 //TODO
             }
         }
+
+        Ln.e("msg service onStartCommand");
+
+        stopSelf();
 
         return START_NOT_STICKY;
     }

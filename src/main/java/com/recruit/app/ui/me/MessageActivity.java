@@ -62,6 +62,7 @@ public class MessageActivity extends AbstractFragmentActivity implements LoaderM
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        setIntent(intent);
         messageList = Arrays.asList((Message) intent.getSerializableExtra("message"));
         MessagePagerAdapter messagePagerAdapter = new MessagePagerAdapter(getSupportFragmentManager(),
                 messageList);
