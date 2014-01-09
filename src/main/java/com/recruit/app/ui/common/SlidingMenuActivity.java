@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.recruit.R;
 import com.recruit.app.ui.common.SlidingMenuAdapterView.OnSlidingMenuItemSelectedListener;
 import com.recruit.app.ui.job.PostPositionFragment;
+import com.recruit.app.ui.me.MessageListFragement;
 
 /**
  * 慢慢重构
@@ -44,7 +45,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		menuItems.add(new SlidingMenuItemBean(R.string.search_record, R.drawable.ic_menu_sample_icon, null, true));
 		menuItems.add(new SlidingMenuItemBean(R.string.my_center, false));
 		menuItems.add(new SlidingMenuItemBean(R.string.my_resume, R.drawable.ic_menu_sample_icon, null, true));
-		menuItems.add(new SlidingMenuItemBean(R.string.my_message, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.my_message, R.drawable.ic_menu_sample_icon, new MessageListFragement(), true));
 		menuItems.add(new SlidingMenuItemBean(R.string.my_position, R.drawable.ic_menu_sample_icon, new PostPositionFragment(), true));
 		menuItems.add(new SlidingMenuItemBean(R.string.my_job, R.drawable.ic_menu_sample_icon, null, true));
 		menuItems.add(new SlidingMenuItemBean(R.string.system, false));
