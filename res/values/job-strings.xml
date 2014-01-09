@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="post_job_label_job_name">职位</string>
-	<string name="post_job_label_company_name">公司名</string>
-	<string name="post_job_label_company_address">公司地址</string>
-	<string name="post_job_label_company_industry">行业</string>
-	<string name="post_job_label_company_structure">公司性质</string>
-	<string name="post_job_label_company_scale">规模</string>
-	<string name="post_job_label_job_location">工作地点</string>
-	<string name="post_job_label_work_year">工作年限</string>
-	<string name="post_job_label_job_number">招聘人数</string>
-	<string name="post_job_label_education">学历</string>
-	<string name="post_job_label_job_function">职位职能</string>
-	<string name="post_job_label_job_conditioan">职位要求</string>
-	<string name="post_job_label_job_skill">技能要求</string>
-	<string name="post_job_label_salary">薪资</string>
+	<string name="post_job_label_company_name">公司名 :</string>
+	<string name="post_job_label_company_address">公司地址 :</string>
+	<string name="post_job_label_company_industry">行业 :</string>
+	<string name="post_job_label_company_structure">公司性质 :</string>
+	<string name="post_job_label_company_scale">规模 :</string>
+	<string name="post_job_label_job_location">工作地点 :</string>
+	<string name="post_job_label_work_year">工作年限 :</string>
+	<string name="post_job_label_job_number">招聘人数 :</string>
+	<string name="post_job_label_education">学历 :</string>
+	<string name="post_job_label_job_function">职位职能 :</string>
+	<string name="post_job_label_job_conditioan">职位要求 :</string>
+	<string name="post_job_label_job_skill">技能要求 :</string>
+	<string name="post_job_label_salary">薪资 :</string>
 	
 
 	<string name="post_job_new_job">发布职位</string>
@@ -26,6 +26,13 @@
 	    <item>政府</item>
 	    <item>其它</item>
 	</string-array>
+	
+	<string name="hire_count_lable">公司规模</string>
+	    <string name="hireCount_1">10人以下</string>
+	    <string name="hireCount_2">10~50人</string>
+	    <string name="hireCount_3">50~100人</string>
+	    <string name="hireCount_4">100~500人</string>
+	    <string name="hireCount_5">500人以上</string>
 	
 	<string-array name="company_scale">
 	    <item>10人以下</item>

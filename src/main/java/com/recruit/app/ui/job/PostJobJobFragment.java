@@ -46,37 +46,37 @@ public class PostJobJobFragment extends PostJobFragment {
 		salary = (EditText)rootView.findViewById(R.id.workSalary);
 		education = (EditText)rootView.findViewById(R.id.educationLevel);
 		requirement = (EditText)rootView.findViewById(R.id.jobFunction);
-
-		rootView.findViewById(R.id.previousBtn).setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				FragmentManager fm = activity.getSupportFragmentManager();
-				FragmentTransaction ft = fm.beginTransaction();
-				Fragment fragment = fm.findFragmentByTag(PostJobActivity.COMPANY_TAB);
-				if(fragment == null) {
-					fragment = Fragment.instantiate(activity, PostJobCompanyFragment.class.getName());
-					ft.add(android.R.id.content, fragment, PostJobActivity.COMPANY_TAB);
-				} else {
-					ft.attach(fragment);
-					ft.show(fragment);
-				}
-				ft.hide(PostJobJobFragment.this);
-				ft.commit();
-			}
-		});
+//
+//		rootView.findViewById(R.id.previousBtn).setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				FragmentManager fm = activity.getSupportFragmentManager();
+//				FragmentTransaction ft = fm.beginTransaction();
+//				Fragment fragment = fm.findFragmentByTag(PostJobActivity.COMPANY_TAB);
+//				if(fragment == null) {
+//					fragment = Fragment.instantiate(activity, PostJobCompanyFragment.class.getName());
+//					ft.add(android.R.id.content, fragment, PostJobActivity.COMPANY_TAB);
+//				} else {
+//					ft.attach(fragment);
+//					ft.show(fragment);
+//				}
+//				ft.hide(PostJobJobFragment.this);
+//				ft.commit();
+//			}
+//		});
 		
-		rootView.findViewById(R.id.saveBtn).setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-				retrieveValue();
-				SQLitePositionService service = new SQLitePositionService();
-				service.addPosition(position);
-				
-				getActivity().finish();
-			}
-		});
+//		rootView.findViewById(R.id.saveBtn).setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//
+//				retrieveValue();
+//				SQLitePositionService service = new SQLitePositionService();
+//				service.addPosition(position);
+//				
+//				getActivity().finish();
+//			}
+//		});
 		return rootView;
 	}
 	

@@ -11,7 +11,7 @@ import com.recruit.app.service.sqlite.SQLiteUserService;
 import com.recruit.app.service.sqlite.SQLiteWorkExpService;
 import com.recruit.app.service.sqlite.SQLiteMessageService;
 
-class SQLiteServiceFactory extends ServiceFactory {
+public class SQLiteServiceFactory extends ServiceFactory {
 	public SQLiteServiceFactory() {
 		positionService = new SQLitePositionService();
 		companyService = new SQLiteCompanyService();

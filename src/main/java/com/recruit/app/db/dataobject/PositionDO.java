@@ -11,6 +11,7 @@ import static com.recruit.app.db.tables.Position.QUANTITY;
 import static com.recruit.app.db.tables.Position.SALARY;
 import static com.recruit.app.db.tables.Position.SKILL;
 import static com.recruit.app.db.tables.Position.WORK_YEAR;
+import static com.recruit.app.db.tables.Position.TITLE;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -163,6 +164,7 @@ public class PositionDO implements Serializable {
         cv.put(DETAIL, detail);
         cv.put(SKILL, skill);
         cv.put(SALARY, salary);
+        cv.put(TITLE, title);
         return cv;
     }
 }
