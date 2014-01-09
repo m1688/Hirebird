@@ -10,6 +10,8 @@
     <dimen name="header_padding_top">10dp</dimen>
     <dimen name="name_size">22dp</dimen>
     <dimen name="desc_size">14dp</dimen>
+    <dimen name="selectable_menu_name_size">18dp</dimen>
+    <dimen name="unselectable_menu_name_size">10dp</dimen>
     <dimen name="menu_name_size">18dp</dimen>
 
     <!-- Per the design guidelines, navigation drawers should be between 240dp and 320dp:
