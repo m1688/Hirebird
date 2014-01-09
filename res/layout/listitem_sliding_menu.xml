@@ -5,7 +5,8 @@
     android:orientation="horizontal"
     android:paddingLeft="0dp"
     android:layout_marginLeft="0dp"
-    android:paddingTop="8dp" >
+    android:paddingTop="8dp"
+    android:background="@color/menu_unselected" >
 	
 	<TextView
 	    android:id="@id/menu_name_view"
@@ -14,6 +15,7 @@
 	    android:paddingLeft="45dp"
 	    android:layout_gravity="left"
 	    android:gravity="center_horizontal"
-	    android:textSize="@dimen/menu_name_size"
-	    android:textColor="@color/menu_text_color"/>
+	    android:textSize="@dimen/selectable_menu_name_size"
+	    android:typeface="monospace"
+	    android:textColor="@color/menu_unselected_font"/>
 </LinearLayout>
