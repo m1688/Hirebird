@@ -14,6 +14,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -116,10 +117,14 @@ public class SlidingMenuActivity extends ActionBarActivity {
 					continue;
 				}
 				
+				TextView nameView = (TextView)item.findViewById(R.id.menu_name_view);
+				LinearLayout lly = (LinearLayout)item.findViewById(R.id.menu_item_linear);
 				if(item == view) {
-					item.setBackgroundColor(getResources().getColor(R.color.menu_selected));
+					lly.setBackgroundColor(getResources().getColor(R.color.menu_selected));
+					nameView.setTextColor(getResources().getColor(R.color.menu_selected_font));
 				} else {
-					item.setBackgroundColor(getResources().getColor(R.color.menu_unselected));
+					lly.setBackgroundColor(getResources().getColor(R.color.menu_unselected));
+					nameView.setTextColor(getResources().getColor(R.color.menu_unselected_font));
 				}
 			}
 			menuItems.get(position).setSelected(true);

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?> 
 <resources> 
-	<color name="menu_selected">#EE9A49</color>
-	<color name="menu_unselected">#FFFFFF</color>
+	<color name="menu_selected">#262626</color>
+	<color name="menu_unselected">#323232</color>
+	<color name="menu_unselected_font">#FFFFFF</color>
+	<color name="menu_selected_font">#E69651</color>
 	<color name="menu_pannel">#FFFFFF</color>
-	<color name="header_bg">#F5DEB3</color>
+	<color name="header_bg">#262626</color>
+	<color name="name_color">#FFFFFF</color>
 	<color name="desc_color">#8B7E66</color>
+	<color name="list_divider">#000000</color>
 	<color name="menu_text_color">#6E8B3D</color>
 </resources>
