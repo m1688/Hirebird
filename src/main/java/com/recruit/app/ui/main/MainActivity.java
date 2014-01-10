@@ -18,8 +18,6 @@ public class MainActivity extends SlidingMenuActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		RecruitSQLiteOpenHelper.init(getApplicationContext());
-		SampleDatas.init();	//去掉注释生成例子数据，只需要生成一次即可，除非手动将数据库文件删掉了才需要再次生成
 		//setContentView(R.layout.activity_main);
 		//保存当前用户信息到首选项,假设当前用户userId=20
 		SharedPreferences sharedPreferences = getSharedPreferences("config", Context.MODE_PRIVATE);

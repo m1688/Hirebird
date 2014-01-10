@@ -10,3 +10,5 @@
 /gradle
 *gradle*
 /.idea
+/build
+/.gradle

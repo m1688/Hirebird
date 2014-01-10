@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">内推</string>
+    <string name="app_name">~内推~</string>
     <string name="action_settings">Settings</string>
+    <string name="send">发送</string>
+    <string name="message_act_label">消息</string>
+    <string name="def_message_title">阿里马马邀请您参加Java攻城狮面试</string>
+    <string name="logout_action">登出</string>
+    <string name="reply">回复</string>
+    <string name="refresh_action">刷新</string>
+    <string name="navigation_drawer_open">Drawer Open</string>
+    <string name="navigation_drawer_close">Drawer Close</string>
+    <string name="main_act_lable">内推</string>
+    <string name="find_neitweet">找内推</string>
     
     <string name="hello_world">Hello world!</string>
     <string name="tab_position">职位详情</string>
@@ -33,4 +43,14 @@
     <string name="post_job_company">公司信息</string>
     <string name="post_job_job">职位信息</string>
 
+
+    <string name="def_sender_name">阿里马马</string>
+    <string name="def_message_body">亲爱的XX\n\n非常感谢你投递该职位，邀请你与2014年01月25日参加面试，地点为XXXX。\n如果有什么问题，请联系我。\n谢谢</string>
+    <string name="message_hint">请输入</string>
+    <string name="accept">接受</string>
+    <string name="message">留言</string>
+    <string name="apply">申请</string>
+    <string name="apply_name">申请人:</string>
+    <string name="apply_job_name">申请职位:</string>
+    <string name="message_list_act_label">消息中心</string>
 </resources>

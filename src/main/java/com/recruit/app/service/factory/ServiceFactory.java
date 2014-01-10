@@ -1,10 +1,12 @@
 package com.recruit.app.service.factory;
 
+import com.recruit.app.db.tables.Message;
 import com.recruit.app.service.AccountService;
 import com.recruit.app.service.CompanyService;
 import com.recruit.app.service.ContactService;
 import com.recruit.app.service.EducationService;
 import com.recruit.app.service.JobTargetService;
+import com.recruit.app.service.MessageService;
 import com.recruit.app.service.PositionService;
 import com.recruit.app.service.ResumeService;
 import com.recruit.app.service.UserService;
@@ -21,6 +23,7 @@ public abstract class ServiceFactory {
 	protected JobTargetService jobTargetService;
 	protected WorkExpService workExpService;
 	protected ResumeService resumeService;
+    protected MessageService messageService;
 	
 	public ContactService getContactService() {
 		return contactService;
@@ -57,6 +60,10 @@ public abstract class ServiceFactory {
 	public EducationService getEducationService() {
 		return educationService;
 	}
+
+    public MessageService getMessageService() {
+        return messageService;
+    }
 	
 	public static ServiceFactory getInstance() {
 		return instance;

@@ -57,8 +57,11 @@ public class DateUtil {
 	 * @return
 	 */
 	public static Date parseDateTime(String str) {
-		SimpleDateFormat sdf = new SimpleDateFormat(DATE_TIME_PATTERN, Locale.getDefault());
+        if(Strings.isEmpty(str)){
+            return null;
+        }
 		try {
+            SimpleDateFormat sdf = new SimpleDateFormat(DATE_TIME_PATTERN, Locale.getDefault());
 			return sdf.parse(str);
 		} catch (Exception e) {
 			Log.e(TAG, "parse date time error", e);
