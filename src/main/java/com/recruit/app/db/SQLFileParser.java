@@ -8,9 +8,11 @@ import java.util.Map;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import android.content.Context;
 import android.util.Log;
 import android.util.Xml;
 
+import com.recruit.R;
 import com.recruit.app.util.CaseInsensitiveHashMap;
 import com.recruit.app.util.StringUtils;
 
@@ -23,20 +25,21 @@ public class SQLFileParser {
 	private static final String TAG = "SQL_FILE_PARSER";
 	private static final Map<String, String> sqlMap = new CaseInsensitiveHashMap<String, String>();
 	private SQLFileParser(){}
-	static {
-		parse();
-	}
+
 	
 	/**
 	 * Key为SQL的id，value为SQL
 	 * @return
+     * @param context
 	 */
-	public static Map<String, String> getSQLMap() {
-		return sqlMap;
+	public static Map<String, String> getSQLMap(Context context) {
+		if(sqlMap.isEmpty()){
+            parse(context.getResources().openRawResource(R.raw.sqls));
+        }
+        return sqlMap;
 	}
 	
-	private static void parse() {
-		InputStream inputStream = SQLFileParser.class.getClassLoader().getResourceAsStream("com/recruit/app/db/sqls.xml");
+	private static void parse(InputStream inputStream) {
 		if(inputStream == null) {
 			throw new IllegalStateException("cannot find sqls.xml");
 		}

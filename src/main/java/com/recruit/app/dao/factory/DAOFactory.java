@@ -5,6 +5,7 @@ import com.recruit.app.dao.CompanyDAO;
 import com.recruit.app.dao.ContactDAO;
 import com.recruit.app.dao.EducationDAO;
 import com.recruit.app.dao.JobTargetDAO;
+import com.recruit.app.dao.MessageDAO;
 import com.recruit.app.dao.PositionDAO;
 import com.recruit.app.dao.ResumeDAO;
 import com.recruit.app.dao.UserDAO;
@@ -21,6 +22,7 @@ public abstract class DAOFactory {
 	protected JobTargetDAO jobTargetDAO;
 	protected WorkExpDAO workExpDAO;
 	protected ResumeDAO resumeDAO;
+    protected MessageDAO messageDAO;
 	
 	public ContactDAO getContactDAO() {
 		return contactDAO;
@@ -49,6 +51,7 @@ public abstract class DAOFactory {
 	public EducationDAO getEducationDAO() {
 		return eduDAO;
 	}
+    public MessageDAO getMessageDAO() { return messageDAO;}
 	public static DAOFactory getInstance() {
 		return instance;
 	}

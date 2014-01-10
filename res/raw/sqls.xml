@@ -1,0 +1,144 @@
+<sqls>
+    <sql id="create_position">
+     <![CDATA[
+     create table if not exists position (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	PUBLISHER		INTEGER,
+     	COMPANY			INTEGER,
+     	POST_DATE		DATETIME,
+     	LOCATION		VARCHAR(256),
+     	WORK_YEAR		INTEGER,
+     	QUANTITY		INTEGER,
+     	LOWEST_DEGREE 	VARCHAR(128),
+     	FUNCTION		TEXT,
+     	DETAIL			TEXT,
+     	SKILL			TEXT,
+     	TITLE                   VARCHAR(128),
+     	SALARY			VARCHAR(64)
+     )
+     ]]>
+    </sql>
+    <sql id="create_account">
+     <![CDATA[
+     create table if not exists account (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	USERNAME		VARCHAR(64),
+     	EMAIL		 	VARCHAR(128),
+     	MOBILE_PHONE	VARCHAR(16),
+     	PASSWORD		VARCHAR(128)
+     )
+     ]]>
+    </sql>
+    <sql id="create_company">
+     <![CDATA[
+     create table if not exists company (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	NAME			VARCHAR(64),
+     	ADDRESS		 	VARCHAR(256),
+     	INDUSTRY		VARCHAR(128),
+     	STRUCTURE		VARCHAR(16),
+     	SCALE			VARCHAR(32)
+     )
+     ]]>
+    </sql>
+    <sql id="create_contact">
+     <![CDATA[
+     create table if not exists contact (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	EMAIL			VARCHAR(128),
+     	PHONE		 	VARCHAR(16),
+     	MOBILE_PHONE	VARCHAR(16),
+     	QQ				VARCHAR(16),
+     	WEIXIN			VARCHAR(32),
+     	RESIDENCE		VARCHAR(256),
+     	LOCATION		VARCHAR(256)
+     )
+     ]]>
+    </sql>
+    <sql id="create_education">
+     <![CDATA[
+     create table if not exists education (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	BEGIN_DATE		DATETIME,
+     	END_DATE		DATETIME,
+     	SCHOOL			VARCHAR(64),
+     	MAJOR			VARCHAR(64),
+     	DETAIL			VARCHAR(128)
+     )
+     ]]>
+    </sql>
+    <sql id="create_jobtarget">
+     <![CDATA[
+     create table if not exists jobtarget (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	INDUSTRY		VARCHAR(64),
+     	POSITION		VARCHAR(64),
+     	WORK_CITY		VARCHAR(64),
+     	EXPECT_SALARY	VARCHAR(16)
+     )
+     ]]>
+    </sql>
+    <sql id="create_resume">
+     <![CDATA[
+     create table if not exists resume (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	USER			INTEGER,
+     	CONTACT			INTEGER,
+     	EDUCATIONS		VARCHAR(256),--逗号分隔的education表id
+     	WORK_EXPS		VARCHAR(256),--逗号分隔的workexp表id
+     	SKILL_DETAIL	VARCHAR(1024),
+     	EXP_DETAIL		TEXT,
+     	JOB_TARGET		INTEGER
+     )
+     ]]>
+    </sql>
+    <sql id="create_user">
+     <![CDATA[
+     create table if not exists user (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	NAME			VARCHAR(64),
+     	SEX				INTEGER,
+     	BIRTHDAY		DATE,
+     	ID_TYPE			INTEGER,
+     	ID_NUM			VARCHAR(64),
+     	DEGREE			INTEGER,
+     	MAJOR			VARCHAR(64),
+     	ENGLISH_LEVEL	INTEGER,
+     	WORK_YEAR		INTEGER,
+     	CREATE_DATE		DATETIME,
+     	MODIFY_DATE		DATETIME,
+     	ACCOUNT			INTEGER
+     )
+     ]]>
+    </sql>
+    <sql id="create_workexp">
+     <![CDATA[
+     create table if not exists workexp (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	COMPANY			VARCHAR(64),
+     	POSITION		VARCHAR(64),
+     	ON_JOB			INTEGER,
+     	BEGIN			DATE,
+     	END				DATE,
+     	SALARY			INTEGER,
+     	IS_PRIVATE		INTEGER,
+     	DETAIL			TEXT
+     )
+     ]]>
+    </sql>
+    <sql id="create_message">
+        <![CDATA[
+     create table if not exists message (
+     	ID 				INTEGER PRIMARY KEY AUTOINCREMENT,
+     	TITLE			VARCHAR(64),
+     	CONTENT		    VARCHAR(128 ),
+     	SENDER_ID   	INTEGER,
+     	SENDER_NAME		VARCHAR(64),
+     	RECEIVER_ID		INTEGER,
+     	RECEIVER_NAME	VARCHAR(64),
+     	TYPE		    VARCHAR(64),
+     	CREATED_DATE    DATE
+     )
+     ]]>
+    </sql>
+</sqls>

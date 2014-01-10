@@ -1,0 +1,47 @@
+{
+  "message_sample_1": {
+     "id" : 1000,
+     "title" : "阿里马儿马邀请您参加Java攻城狮面试",
+     "content" : "亲爱的可儿可\n\n非常感谢你投递该职位，邀请你与2014年01月25日参加面试，地点为XXXX。\n如果有什么问题，请联系我。\n谢谢",
+     "senderId" : 1000,
+     "positionId" : 1000,
+     "senderName" : "阿里马儿马",
+     "receiverId" : 1000,
+     "receiverName" : "阿里可儿可",
+     "messageType" : ""
+  },
+  "message_sample_2": {
+       "id" : 1001,
+       "title" : "阿里牛儿牛邀请您参加Java攻城狮面试",
+       "content" : "亲爱的可儿可\n\n非常感谢你投递该职位，邀请你与2014年01月26日参加面试，地点为XXXX。\n如果有什么问题，请联系我。\n谢谢",
+       "senderId" : 1000,
+       "positionId" : 1000,
+       "senderName" : "阿里牛儿牛",
+       "receiverId" : 1000,
+       "receiverName" : "阿里可儿可",
+       "messageType" : ""
+    },
+  "accept_message_sample": {
+       "id" : 1000002,
+       "title" : "你的面试邀请已经接受",
+       "content" : "阿里卡可卡接受Java攻城狮面试",
+       "senderId" : 1000,
+       "positionId" : 1000,
+       "senderName" : "阿里萨达姆",
+       "receiverId" : 1002,
+       "receiverName" : "阿里卡可卡",
+       "messageType" : ""
+    },
+  "notification_message_sample": {
+       "id" : 1003,
+       "title" : "你的面试邀请已经通过",
+       "content" : "阿里马儿马Java攻城狮面试通过",
+       "senderId" : 1000,
+       "positionId" : 1000,
+       "senderName" : "阿里猪儿猪",
+       "receiverId" : 1000,
+       "receiverName" : "阿里可儿可",
+       "messageType" : ""
+    }
+
+}

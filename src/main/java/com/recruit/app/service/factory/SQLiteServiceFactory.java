@@ -9,6 +9,7 @@ import com.recruit.app.service.sqlite.SQLitePositionService;
 import com.recruit.app.service.sqlite.SQLiteResumeService;
 import com.recruit.app.service.sqlite.SQLiteUserService;
 import com.recruit.app.service.sqlite.SQLiteWorkExpService;
+import com.recruit.app.service.sqlite.SQLiteMessageService;
 
 public class SQLiteServiceFactory extends ServiceFactory {
 	public SQLiteServiceFactory() {
@@ -21,5 +22,6 @@ public class SQLiteServiceFactory extends ServiceFactory {
 		jobTargetService = new SQLiteJobTargetService();
 		workExpService = new SQLiteWorkExpService();
 		resumeService = new SQLiteResumeService();
+        messageService = new SQLiteMessageService();
 	}
 }
