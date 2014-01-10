@@ -50,5 +50,7 @@
     <string name="accept">接受</string>
     <string name="message">留言</string>
     <string name="apply">申请</string>
+    <string name="apply_name">申请人:</string>
+    <string name="apply_job_name">申请职位:</string>
     <string name="message_list_act_label">消息中心</string>
 </resources>

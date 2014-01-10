@@ -33,7 +33,6 @@ public class MessageListFragement extends Fragment {
     private ViewPager mPager;//页卡内容
     private List<View> listViews; // Tab页面列表
     private ImageView imageView;// 动画图片
-    private TextView t1, t2;// 页卡头标
     private int offset = 0;// 动画图片偏移量
     private int currIndex = 0;// 当前页卡编号
     private int bmpW;// 动画图片宽度
