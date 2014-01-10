@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.recruit.R;
 import com.recruit.app.db.RecruitSQLiteOpenHelper;
@@ -46,5 +48,22 @@ public class MainActivity extends SlidingMenuActivity {
 		
 		return super.onOptionsItemSelected(item);
 	}
+	
+//  返回键退出
+  private long exitTime = 0;
+  @Override
+  public boolean onKeyDown(int keyCode, KeyEvent event) {
+      if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){   
+          if((System.currentTimeMillis()-exitTime) > 2000){  
+              Toast.makeText(getApplicationContext(), this.getString(R.string.app_exit), Toast.LENGTH_SHORT).show();                                
+              exitTime = System.currentTimeMillis();   
+          } else {
+              finish();
+              System.exit(0);
+          }
+          return true;   
+      }
+      return super.onKeyDown(keyCode, event);
+  }
 
 }

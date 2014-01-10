@@ -6,10 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -32,13 +36,14 @@ public class SearchListActivity extends Activity{
 //		init Data
 //		RecruitSQLiteOpenHelper.init(getApplicationContext());
 //		SampleDatas.init();	//去掉注释生成例子数据，只需要生成一次即可，除非手动将数据库文件删掉了才需要再次生成
-		
+		getActionBar().setDisplayHomeAsUpEnabled(true); 
 		initViews();
 	}
 	
 	
 	
 	private void initViews() {
+		
 		String keywords="";
 		Bundle extras = getIntent().getExtras();
         
@@ -63,7 +68,16 @@ public class SearchListActivity extends Activity{
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        	case android.R.id.home:
+        		this.finish();
+        		return true;
+        	default:
+        		return super.onOptionsItemSelected(item);
+        }
+    }
 	private List<Map<String, String>> positionList(){
 		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 		for(int i = 0; i < 10; i++) {
