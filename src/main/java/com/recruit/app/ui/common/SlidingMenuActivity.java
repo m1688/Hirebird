@@ -14,6 +14,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +37,6 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	protected DrawerLayout drawerLayout;
 	protected ListView menuDrawerList;
 	protected TextView actionBarTitle;
-	
 	/**
 	 * 菜单对应的Fragment从SlidingMenuItemBean的参数中传过去
 	 */
@@ -72,22 +72,28 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		
 		
 		drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
-				R.drawable.ic_drawer, R.string.drawer_open,
+				R.drawable.ic_navigation_drawer, R.string.drawer_open,
 				R.string.drawer_close);
 		
 		
 		initActionBar();
 		initSlidingMenu();
-
 		drawerLayout.setDrawerListener(drawerToggle);
 	}
 
 	private void initSlidingMenu() {
 		menuDrawerList.setAdapter(new SlidingMenuAdapterView(getApplicationContext(), R.layout.listitem_sliding_menu, menuItems));
 		menuDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-		
+		menuDrawerList.performItemClick(menuDrawerList, getDefaultSelection(), menuDrawerList.getItemIdAtPosition(getDefaultSelection()));
 	}
 	
+	/**
+	 * 子类重写这个方法指定默认选中哪一个选项
+	 * @return
+	 */
+	protected int getDefaultSelection() {
+		return 0;
+	}
 	
 	private void initActionBar() {
 		ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
@@ -96,20 +102,20 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		View view = getLayoutInflater()
 				.inflate(R.layout.actionbar_title, null);
 		actionBarTitle = (TextView) view.findViewById(R.id.action_bar_title);
-		actionBar.setCustomView(view, lp);
-		actionBar.setDisplayShowHomeEnabled(false);
-		actionBar.setDisplayShowCustomEnabled(true);
-		actionBar.setDisplayShowTitleEnabled(false);
-		actionBar.setLogo(R.drawable.ic_drawer2);
+//		actionBar.setCustomView(view, lp);
+		actionBar.setDisplayHomeAsUpEnabled(true);
+//		actionBar.setDisplayShowCustomEnabled(true);
+		actionBar.setDisplayShowTitleEnabled(true);
+//		actionBar.setLogo(R.drawable.ic_drawer2);
 		actionBar.setDisplayShowHomeEnabled(true);// show button
 		actionBar.setHomeButtonEnabled(true);// enable button
 	}
 	
 	private class DrawerItemClickListener implements
 			ListView.OnItemClickListener {
-		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
+		    unSelectAll();
 			selectItem(view, position);
 			int childCount = parent.getChildCount();
 			for(int i = 0; i < childCount; i++) {
@@ -118,16 +124,26 @@ public class SlidingMenuActivity extends ActionBarActivity {
 					continue;
 				}
 				
+				TextView nameView = (TextView)item.findViewById(R.id.menu_name_view);
+				LinearLayout lly = (LinearLayout)item.findViewById(R.id.menu_item_linear);
 				if(item == view) {
-					item.setBackgroundColor(getResources().getColor(R.color.menu_selected));
-				} else {
-					item.setBackgroundColor(getResources().getColor(R.color.menu_unselected));
+					lly.setBackgroundColor(getResources().getColor(R.color.menu_selected));
+					nameView.setTextColor(getResources().getColor(R.color.menu_selected_font));
+				} else if(item.isEnabled()) {
+					lly.setBackgroundColor(getResources().getColor(R.color.menu_unselected));
+					nameView.setTextColor(getResources().getColor(R.color.menu_unselected_font));
 				}
 			}
+			menuItems.get(position).setSelected(true);
 			drawerLayout.closeDrawer(drawerFrame);
 		}
 	}
-
+	
+	private void unSelectAll() {
+	    for(int i = 0; i < menuItems.size(); i++) {
+	        menuItems.get(i).setSelected(false);
+	    }
+	}
 	private void selectItem(View view, int position) {
 		SlidingMenuItemBean slidingMenuItemBean = menuItems.get(position);
 		Fragment fragment = slidingMenuItemBean.getFragment();
@@ -146,6 +162,12 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	@Override
 	public void setTitle(CharSequence title) {
 		actionBarTitle.setText(title);
+	}
+	
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+		drawerToggle.syncState();
 	}
 
 	@Override

@@ -43,13 +43,25 @@ public class SlidingMenuAdapterView extends ArrayAdapter<SlidingMenuItemBean> {
 		if(iconDrawableRes != 0) {
 			nameView.setCompoundDrawablesWithIntrinsicBounds(view.getResources().getDrawable(iconDrawableRes), null, null, null);
 		}
+		LinearLayout lly = (LinearLayout)view.findViewById(R.id.menu_item_linear);
 		
 		if(!hasEvent) {
-			nameView.setPadding(15, 0, 0, 0);
+			view.setEnabled(false);
+			lly.setBackgroundColor(view.getResources().getColor(R.color.menu_unselectable));
+			nameView.setTextSize(view.getResources().getDimension(R.dimen.unselectable_menu_name_size));
+			nameView.setPadding(15, nameView.getPaddingTop(), nameView.getPaddingRight(), nameView.getPaddingBottom());
+			nameView.setTextColor(view.getResources().getColor(R.color.menu_unselectable_font));
+			return view;
 		}
 		
-		//在这里将所有元素的背景色复原，如果只是在SlidingMenuActivity.DrawerItemClickListener中做的话，隐藏的那部分item的背景色不会改变
-		view.setBackgroundColor(view.getResources().getColor(R.color.menu_unselected));
+		//这里也做一次背景色调整，如果只是在SlidingMenuActivity.DrawerItemClickListener中做的话，隐藏的那部分item的背景色不会改变
+		if(item.isSelected()) {
+			lly.setBackgroundColor(view.getResources().getColor(R.color.menu_selected));
+            nameView.setTextColor(view.getResources().getColor(R.color.menu_selected_font));
+        } else {
+        	lly.setBackgroundColor(view.getResources().getColor(R.color.menu_unselected));
+            nameView.setTextColor(view.getResources().getColor(R.color.menu_unselected_font));
+        }
 		return view;
 	}
 	

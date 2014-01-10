@@ -28,6 +28,7 @@ public class PositionMapper {
         positionDO.setSalary(position.getSalary());
         positionDO.setSkill(position.getSkill());
         positionDO.setWorkYear(position.getWorkYear());
+        positionDO.setTitle(position.getTitle());
         return positionDO;
     }
 

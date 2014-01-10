@@ -2,69 +2,108 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_job_label_company_name"/>
+    <TableLayout  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:padding="10dip" > 
+		<TableRow  
+            android:layout_width="fill_parent"  
+            android:layout_height="wrap_content"  
+            android:background="@drawable/shape_top_corner_no_bottom_line"  
+            android:padding="10dip" >  
 
-    <EditText
-        android:id="@+id/companyName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" >
-        <requestFocus />
-    </EditText>
+		        <TextView
+		            style="@style/Recruit.Position.Item.Label"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/post_job_label_company_name" />
+		
+		        <EditText
+		            android:id="@+id/companyName"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:background="@null"
+		            android:ems="10" />
+ 
+       </TableRow>
+       
+ 	<TableRow  
+            android:layout_width="fill_parent"  
+            android:layout_height="wrap_content"  
+            android:background="@drawable/shape_no_corner_without_bottom"  
+            android:padding="10dip" >    
+                    <TextView
+            style="@style/Recruit.Position.Item.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_job_label_company_address" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_job_label_company_address" />
+        <TextView
+            android:id="@+id/companyAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+</TableRow>     
+    
+
+ <TableRow  
+            android:layout_width="fill_parent"  
+            android:layout_height="wrap_content"  
+            android:background="@drawable/shape_no_corner_without_bottom"  
+            android:padding="10dip" >
+         <TextView
+                    style="@style/Recruit.Position.Item.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_job_label_company_industry" />
+
+        <EditText
+            android:id="@+id/companyIndustry"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        </TableRow>
+
+ <TableRow  
+            android:layout_width="fill_parent"  
+            android:layout_height="wrap_content"  
+            android:background="@drawable/shape_no_corner_without_bottom"  
+            android:padding="10dip" >
+                <TextView
+            android:id="@+id/companyStructure"
+            style="@style/Recruit.Position.Item.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_job_label_company_structure" />
+
+        <TextView
+            android:id="@+id/companyStructureSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        </TableRow>
 
 
-    <EditText
-        android:id="@+id/companyAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />
+<TableRow  
+            android:layout_width="fill_parent"  
+            android:layout_height="wrap_content"  
+            android:background="@drawable/shape_bottom_corner_no_top_line"  
+            android:padding="10dip" >  
+                  <TextView
+                      style="@style/Recruit.Position.Item.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_job_label_company_scale" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_job_label_company_industry" />
+        <TextView
+            android:id="@+id/companyScaleSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />  
+            </TableRow>
 
-    <EditText
-        android:id="@+id/companyIndustry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" />
+ </TableLayout>
 
-    <TextView
-        android:id="@+id/companyStructure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_job_label_company_structure" />
-
-     <Spinner
-        android:id="@+id/companyStructureSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-     
-    	<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/post_job_label_company_scale" />
-	
-     <Spinner
-        android:id="@+id/companyScaleSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-     <Button
-         android:id="@+id/nextStepBtn"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="@string/post_job_btn_next_step" />
 
 </LinearLayout>
