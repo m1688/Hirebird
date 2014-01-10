@@ -56,7 +56,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 			public void onSlidingMenuItemSelected(View view, int position) {
 				Toast.makeText(getApplicationContext(), "The app is currently neweast", Toast.LENGTH_SHORT).show();
 			}
-		}));
+		}, false));
 	}
 	
 	@Override
@@ -114,8 +114,13 @@ public class SlidingMenuActivity extends ActionBarActivity {
 			ListView.OnItemClickListener {
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-		    unSelectAll();
 			selectItem(view, position);
+			SlidingMenuItemBean selectedItemBean = menuItems.get(position);
+			if(!selectedItemBean.isSelectable()) {
+			    return;
+			}
+			
+			unSelectAll();
 			int childCount = parent.getChildCount();
 			for(int i = 0; i < childCount; i++) {
 				View item = parent.getChildAt(i);
@@ -133,7 +138,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 					nameView.setTextColor(getResources().getColor(R.color.menu_unselected_font));
 				}
 			}
-			menuItems.get(position).setSelected(true);
+			selectedItemBean.setSelected(true);
 			drawerLayout.closeDrawer(drawerFrame);
 		}
 	}
