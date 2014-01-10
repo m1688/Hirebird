@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.recruit.R;
 import com.recruit.app.ui.common.SlidingMenuAdapterView.OnSlidingMenuItemSelectedListener;
 import com.recruit.app.ui.job.PostPositionFragment;
+import com.recruit.app.ui.search.SearchFragment;
 
 /**
  * 慢慢重构
@@ -40,7 +41,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	 * 菜单对应的Fragment从SlidingMenuItemBean的参数中传过去
 	 */
 	protected void initMenuItems() {
-		menuItems.add(new SlidingMenuItemBean(R.string.begin_search, R.drawable.ic_menu_sample_icon, null, true));
+		menuItems.add(new SlidingMenuItemBean(R.string.begin_search, R.drawable.ic_menu_sample_icon, new SearchFragment(), true));
 		menuItems.add(new SlidingMenuItemBean(R.string.search_record, R.drawable.ic_menu_sample_icon, null, true));
 		menuItems.add(new SlidingMenuItemBean(R.string.my_center, false));
 		menuItems.add(new SlidingMenuItemBean(R.string.my_resume, R.drawable.ic_menu_sample_icon, null, true));
