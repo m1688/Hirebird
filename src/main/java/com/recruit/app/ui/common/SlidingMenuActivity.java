@@ -37,7 +37,6 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	protected DrawerLayout drawerLayout;
 	protected ListView menuDrawerList;
 	protected TextView actionBarTitle;
-	
 	/**
 	 * 菜单对应的Fragment从SlidingMenuItemBean的参数中传过去
 	 */
@@ -85,9 +84,16 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	private void initSlidingMenu() {
 		menuDrawerList.setAdapter(new SlidingMenuAdapterView(getApplicationContext(), R.layout.listitem_sliding_menu, menuItems));
 		menuDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-		
+		menuDrawerList.performItemClick(menuDrawerList, getDefaultSelection(), menuDrawerList.getItemIdAtPosition(getDefaultSelection()));
 	}
 	
+	/**
+	 * 子类重写这个方法指定默认选中哪一个选项
+	 * @return
+	 */
+	protected int getDefaultSelection() {
+		return 0;
+	}
 	
 	private void initActionBar() {
 		ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
@@ -123,7 +129,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 				if(item == view) {
 					lly.setBackgroundColor(getResources().getColor(R.color.menu_selected));
 					nameView.setTextColor(getResources().getColor(R.color.menu_selected_font));
-				} else {
+				} else if(item.isEnabled()) {
 					lly.setBackgroundColor(getResources().getColor(R.color.menu_unselected));
 					nameView.setTextColor(getResources().getColor(R.color.menu_unselected_font));
 				}
