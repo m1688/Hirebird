@@ -38,7 +38,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:scaleType="matrix"
-        />
+        android:src="@drawable/bottom_s"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vPager"
