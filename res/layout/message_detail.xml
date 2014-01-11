@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:background="@color/activity_background">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="88sp"
         android:background="@drawable/shadow"
@@ -25,6 +25,7 @@
             app:round_background="true" />
 
         <!--发送者名称-->
+        <!-- remove android:textAlignment="center" -->
         <TextView
             android:id="@+id/message_sender_name"
             android:layout_height="20sp"
@@ -36,7 +37,6 @@
             android:textColor="@color/transparent_text"
             android:text="@string/def_sender_name"
             android:gravity="center"
-            android:textAlignment="center"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:textSize="12sp"
@@ -74,7 +74,7 @@
     </RelativeLayout>
 
     <!--消息主体-->
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="15sp">
