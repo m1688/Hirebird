@@ -19,6 +19,7 @@ class SlidingMenuItemBean {
 	private Fragment fragment;
 	private OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener;
 	private boolean isSelected;
+	private boolean isSelectable = true;//选择是是否高亮
 	
 	public SlidingMenuItemBean(int menuNameRes, int iconDrawableRes, Fragment fragment, boolean hasEvent) {
 		this.menuNameRes = menuNameRes;
@@ -35,17 +36,33 @@ class SlidingMenuItemBean {
 		this.onSlidingMenuItemSelectedListener = onSlidingMenuItemSelectedListener;
 	}
 	
+	public SlidingMenuItemBean(int menuNameRes, int iconDrawableRes, Fragment fragment, boolean hasEvent, OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener, boolean isSelectable) {
+	    this.menuNameRes = menuNameRes;
+	    this.hasEvent = hasEvent;
+	    this.fragment = fragment;
+	    this.iconDrawableRes = iconDrawableRes;
+	    this.onSlidingMenuItemSelectedListener = onSlidingMenuItemSelectedListener;
+	    this.isSelectable = isSelectable;
+	}
+	
 	public SlidingMenuItemBean(int menuNameRes, boolean hasEvent) {
 		this.menuNameRes = menuNameRes;
 		this.hasEvent = hasEvent;
 	}
 	
-	public SlidingMenuItemBean(int menuNameRes, boolean hasEvent, OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener) {
+	public SlidingMenuItemBean(int menuNameRes, boolean hasEvent, OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener, boolean isSelectable) {
 		this.menuNameRes = menuNameRes;
 		this.hasEvent = hasEvent;
 		this.onSlidingMenuItemSelectedListener = onSlidingMenuItemSelectedListener;
+		this.isSelectable = isSelectable;
 	}
-
+	
+	public SlidingMenuItemBean(int menuNameRes, boolean hasEvent, OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener) {
+	    this.menuNameRes = menuNameRes;
+	    this.hasEvent = hasEvent;
+	    this.onSlidingMenuItemSelectedListener = onSlidingMenuItemSelectedListener;
+	}
+	
 	public int getMenuNameRes() {
 		return menuNameRes;
 	}
@@ -93,5 +110,13 @@ class SlidingMenuItemBean {
 
     public void setSelected(boolean isSelected) {
         this.isSelected = isSelected;
+    }
+    
+    public boolean isSelectable() {
+        return isSelectable;
+    }
+    
+    public void setSelectable(boolean isSelectable) {
+        this.isSelectable = isSelectable;
     }
 }

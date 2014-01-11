@@ -70,6 +70,7 @@
 	        android:layout_height="match_parent"
 	        android:choiceMode="singleChoice"
 	        android:divider="@color/list_divider"
-	        android:dividerHeight="1dp"/>
+	        android:dividerHeight="1dp"
+	        android:listSelector="@color/menu_selected"/>
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
