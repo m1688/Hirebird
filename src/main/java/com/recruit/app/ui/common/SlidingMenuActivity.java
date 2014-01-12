@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -115,8 +116,12 @@ public class SlidingMenuActivity extends ActionBarActivity {
 			ListView.OnItemClickListener {
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			selectItem(view, position);
 			SlidingMenuItemBean selectedItemBean = menuItems.get(position);
+			if(selectedItemBean.isSelected()) {
+				drawerLayout.closeDrawer(drawerFrame);
+				return;
+			}
+			selectItem(view, position);
 			if(!selectedItemBean.isSelectable()) {
 			    return;
 			}
@@ -154,8 +159,10 @@ public class SlidingMenuActivity extends ActionBarActivity {
 		Fragment fragment = slidingMenuItemBean.getFragment();
 		if(fragment != null) {
 			FragmentManager fragmentManager = getSupportFragmentManager();
-			fragmentManager.beginTransaction()
-					.replace(R.id.content_frame, fragment, "content").commit();
+			FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
+					.replace(R.id.content_frame, fragment, "content");
+			fragmentTransaction.addToBackStack(null);
+			fragmentTransaction.commit();
 		}
 		OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener = slidingMenuItemBean.getOnSlidingMenuItemSelectedListener();
 		if(onSlidingMenuItemSelectedListener != null) {
