@@ -11,26 +11,22 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.recruit.R;
 import com.recruit.app.ui.common.SlidingMenuAdapterView.OnSlidingMenuItemSelectedListener;
-import com.recruit.app.ui.job.PostPositionFragment;
-import com.recruit.app.ui.me.MessageListFragement;
 
 /**
  * 慢慢重构
  * @author Administrator
  *
  */
-public class SlidingMenuActivity extends ActionBarActivity {
+public abstract class SlidingMenuActivity extends ActionBarActivity {
 	private ActionBarDrawerToggle drawerToggle;
 	private View drawerFrame;
 	protected ActionBar actionBar;
@@ -41,25 +37,7 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	/**
 	 * 菜单对应的Fragment从SlidingMenuItemBean的参数中传过去
 	 */
-	protected void initMenuItems() {
-		menuItems.add(new SlidingMenuItemBean(R.string.begin_search, R.drawable.ic_menu_sample_icon, null, true));
-		menuItems.add(new SlidingMenuItemBean(R.string.search_record, R.drawable.ic_menu_sample_icon, null, true));
-		menuItems.add(new SlidingMenuItemBean(R.string.my_center, false));
-		menuItems.add(new SlidingMenuItemBean(R.string.my_resume, R.drawable.ic_menu_sample_icon, null, true));
-		menuItems.add(new SlidingMenuItemBean(R.string.my_message, R.drawable.ic_menu_sample_icon, new MessageListFragement(), true));
-		menuItems.add(new SlidingMenuItemBean(R.string.my_position, R.drawable.ic_menu_sample_icon, new PostPositionFragment(), true));
-		menuItems.add(new SlidingMenuItemBean(R.string.my_job, R.drawable.ic_menu_sample_icon, null, true));
-		menuItems.add(new SlidingMenuItemBean(R.string.system, false));
-		menuItems.add(new SlidingMenuItemBean(R.string.sys_setting, R.drawable.ic_menu_sample_icon, null, true));
-		menuItems.add(new SlidingMenuItemBean(R.string.suggestion, R.drawable.ic_menu_sample_icon, null, true));
-		menuItems.add(new SlidingMenuItemBean(R.string.about_us, R.drawable.ic_menu_sample_icon, null, true));
-//		menuItems.add(new SlidingMenuItemBean(R.string.check_for_update, R.drawable.ic_menu_sample_icon, null, true));
-		menuItems.add(new SlidingMenuItemBean(R.string.check_for_update, R.drawable.ic_menu_sample_icon, null, true, new OnSlidingMenuItemSelectedListener(){
-			public void onSlidingMenuItemSelected(View view, int position) {
-				Toast.makeText(getApplicationContext(), "The app is currently neweast", Toast.LENGTH_SHORT).show();
-			}
-		}, false));
-	}
+	protected abstract void initMenuItems();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +63,9 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	private void initSlidingMenu() {
 		menuDrawerList.setAdapter(new SlidingMenuAdapterView(getApplicationContext(), R.layout.listitem_sliding_menu, menuItems));
 		menuDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-		menuDrawerList.performItemClick(menuDrawerList, getDefaultSelection(), menuDrawerList.getItemIdAtPosition(getDefaultSelection()));
+		if(getDefaultSelection() >= 0) {
+			menuDrawerList.performItemClick(menuDrawerList, getDefaultSelection(), menuDrawerList.getItemIdAtPosition(getDefaultSelection()));
+		}
 	}
 	
 	/**
@@ -97,9 +77,9 @@ public class SlidingMenuActivity extends ActionBarActivity {
 	}
 	
 	private void initActionBar() {
-		ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
+		/*ActionBar.LayoutParams lp = new ActionBar.LayoutParams(
 				ActionBar.LayoutParams.MATCH_PARENT,
-				ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
+				ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);*/
 		View view = getLayoutInflater()
 				.inflate(R.layout.actionbar_title, null);
 		actionBarTitle = (TextView) view.findViewById(R.id.action_bar_title);

@@ -12,7 +12,7 @@ import android.support.v4.app.Fragment;
  * @author Administrator
  *
  */
-class SlidingMenuItemBean {
+public class SlidingMenuItemBean {
 	private int menuNameRes;
 	private boolean hasEvent;
 	private int iconDrawableRes;
