@@ -96,6 +96,7 @@ public abstract class SlidingMenuActivity extends ActionBarActivity {
 			ListView.OnItemClickListener {
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
+			drawerLayout.closeDrawer(drawerFrame);
 			SlidingMenuItemBean selectedItemBean = menuItems.get(position);
 			if(selectedItemBean.isSelected()) {
 				drawerLayout.closeDrawer(drawerFrame);
@@ -125,7 +126,6 @@ public abstract class SlidingMenuActivity extends ActionBarActivity {
 				}
 			}
 			selectedItemBean.setSelected(true);
-			drawerLayout.closeDrawer(drawerFrame);
 		}
 	}
 	
@@ -147,8 +147,8 @@ public abstract class SlidingMenuActivity extends ActionBarActivity {
 		OnSlidingMenuItemSelectedListener onSlidingMenuItemSelectedListener = slidingMenuItemBean.getOnSlidingMenuItemSelectedListener();
 		if(onSlidingMenuItemSelectedListener != null) {
 			onSlidingMenuItemSelectedListener.onSlidingMenuItemSelected(view, position);
+			setTitle(getResources().getString(slidingMenuItemBean.getMenuNameRes()));
 		}
-		setTitle(getResources().getString(slidingMenuItemBean.getMenuNameRes()));
 	}
 
 	@Override
