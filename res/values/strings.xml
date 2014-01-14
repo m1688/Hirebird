@@ -43,6 +43,8 @@
     
     <string name="post_job_company">公司信息</string>
     <string name="post_job_job">职位信息</string>
+    
+    <string name="app_exit">再按一次退出程序</string>
 
 
     <string name="def_sender_name">阿里马马</string>
