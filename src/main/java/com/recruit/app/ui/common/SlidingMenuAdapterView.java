@@ -3,6 +3,9 @@ package com.recruit.app.ui.common;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +44,10 @@ public class SlidingMenuAdapterView extends ArrayAdapter<SlidingMenuItemBean> {
 		nameView.setText(view.getResources().getString(menuNameRes));
 		
 		if(iconDrawableRes != 0) {
-			nameView.setCompoundDrawablesWithIntrinsicBounds(view.getResources().getDrawable(iconDrawableRes), null, null, null);
+			Drawable dr = view.getResources().getDrawable(iconDrawableRes);
+			Bitmap bitmap = ((BitmapDrawable) dr).getBitmap();
+			Drawable d = new BitmapDrawable(view.getResources(), Bitmap.createScaledBitmap(bitmap, 35, 35, true));
+			nameView.setCompoundDrawablesWithIntrinsicBounds(d, null, null, null);
 		}
 		LinearLayout lly = (LinearLayout)view.findViewById(R.id.menu_item_linear);
 		
@@ -49,7 +55,8 @@ public class SlidingMenuAdapterView extends ArrayAdapter<SlidingMenuItemBean> {
 			view.setEnabled(false);
 			lly.setBackgroundColor(view.getResources().getColor(R.color.menu_unselectable));
 			nameView.setTextSize(view.getResources().getDimension(R.dimen.unselectable_menu_name_size));
-			nameView.setPadding(15, nameView.getPaddingTop(), nameView.getPaddingRight(), nameView.getPaddingBottom());
+			nameView.setPadding(15, nameView.getPaddingTop()-5, nameView.getPaddingRight(), nameView.getPaddingBottom()-5);
+			lly.getLayoutParams().height = lly.getLayoutParams().height - 18;
 			nameView.setTextColor(view.getResources().getColor(R.color.menu_unselectable_font));
 			return view;
 		}
