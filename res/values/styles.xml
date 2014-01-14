@@ -5,8 +5,8 @@
         <item name="android:background">@drawable/nav_menu_button_background_selector</item>
     </style>
 
-    <style name="Recruit.Theme.AppCompat.Light" parent="Theme.AppCompat.Light">
-    	<item name="displayOptions">showHome|useLogo</item>
+    <style name="Recruit.Theme.AppCompat.Light" parent="Theme.Base.AppCompat">
+    	<item name="android:displayOptions">showHome|useLogo</item>
 	</style>
 	<style name="textview_position_style">  
         <item name="android:layout_height">30dp</item>  
@@ -14,7 +14,7 @@
         <item name="android:layout_margin">1dip</item>  
         <item name="android:clickable">true</item>  
     </style>  
-    <style name="Recruit.Position.Item" parent="Theme.AppCompat.Light">
+    <style name="Recruit.Position.Item" parent="Theme.Base.AppCompat">
         <item name="android:padding">5dp</item>
     </style>
     <style name="Recruit.Position.Item.Title">

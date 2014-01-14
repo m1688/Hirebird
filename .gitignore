@@ -13,3 +13,5 @@
 /libs/android-support-v4.jar
 
 /libs/android-support-v7-appcompat.jar
+
+/lint.xml

@@ -1154,43 +1154,47 @@ containing a value of this type.
         public static final int ic_action_favorite=0x7f020060;
         public static final int ic_action_help=0x7f020061;
         public static final int ic_action_important=0x7f020062;
-        public static final int ic_action_new_event=0x7f020063;
-        public static final int ic_action_overflow=0x7f020064;
-        public static final int ic_action_picture=0x7f020065;
-        public static final int ic_action_read=0x7f020066;
-        public static final int ic_action_refresh=0x7f020067;
-        public static final int ic_action_remove=0x7f020068;
-        public static final int ic_action_reply=0x7f020069;
-        public static final int ic_action_save=0x7f02006a;
-        public static final int ic_action_search=0x7f02006b;
-        public static final int ic_action_settings=0x7f02006c;
-        public static final int ic_action_share=0x7f02006d;
-        public static final int ic_action_unread=0x7f02006e;
-        public static final int ic_drawer=0x7f02006f;
-        public static final int ic_drawer2=0x7f020070;
-        public static final int ic_home=0x7f020071;
-        public static final int ic_launcher=0x7f020072;
-        public static final int ic_menu_sample_icon=0x7f020073;
-        public static final int ic_messages=0x7f020074;
-        public static final int ic_my_header=0x7f020075;
-        public static final int ic_navigation_drawer=0x7f020076;
-        public static final int ic_stat_ab_notification=0x7f020077;
-        public static final int ic_user_default=0x7f020078;
-        public static final int icon=0x7f020079;
-        public static final int nav_menu_button_background_disabled=0x7f02007a;
-        public static final int nav_menu_button_background_enabled=0x7f02007b;
-        public static final int nav_menu_button_background_pressed=0x7f02007c;
-        public static final int nav_menu_button_background_selector=0x7f02007d;
-        public static final int shadow=0x7f02007e;
-        public static final int shape_bottom_corner_no_top_line=0x7f02007f;
-        public static final int shape_no_corner_without_bottom=0x7f020080;
-        public static final int shape_top_corner_no_bottom_line=0x7f020081;
-        public static final int textview_round=0x7f020082;
-        public static final int wheel_bg=0x7f020083;
-        public static final int wheel_val=0x7f020084;
-        public static final int zhangfei=0x7f020085;
-        public static final int zhaoyun=0x7f020086;
-        public static final int zhugeliang=0x7f020087;
+        public static final int ic_action_message=0x7f020063;
+        public static final int ic_action_new_event=0x7f020064;
+        public static final int ic_action_overflow=0x7f020065;
+        public static final int ic_action_picture=0x7f020066;
+        public static final int ic_action_read=0x7f020067;
+        public static final int ic_action_record=0x7f020068;
+        public static final int ic_action_refresh=0x7f020069;
+        public static final int ic_action_remove=0x7f02006a;
+        public static final int ic_action_reply=0x7f02006b;
+        public static final int ic_action_resume=0x7f02006c;
+        public static final int ic_action_save=0x7f02006d;
+        public static final int ic_action_search=0x7f02006e;
+        public static final int ic_action_settings=0x7f02006f;
+        public static final int ic_action_share=0x7f020070;
+        public static final int ic_action_unread=0x7f020071;
+        public static final int ic_action_update=0x7f020072;
+        public static final int ic_drawer=0x7f020073;
+        public static final int ic_drawer2=0x7f020074;
+        public static final int ic_home=0x7f020075;
+        public static final int ic_launcher=0x7f020076;
+        public static final int ic_menu_sample_icon=0x7f020077;
+        public static final int ic_messages=0x7f020078;
+        public static final int ic_my_header=0x7f020079;
+        public static final int ic_navigation_drawer=0x7f02007a;
+        public static final int ic_stat_ab_notification=0x7f02007b;
+        public static final int ic_user_default=0x7f02007c;
+        public static final int icon=0x7f02007d;
+        public static final int nav_menu_button_background_disabled=0x7f02007e;
+        public static final int nav_menu_button_background_enabled=0x7f02007f;
+        public static final int nav_menu_button_background_pressed=0x7f020080;
+        public static final int nav_menu_button_background_selector=0x7f020081;
+        public static final int shadow=0x7f020082;
+        public static final int shape_bottom_corner_no_top_line=0x7f020083;
+        public static final int shape_no_corner_without_bottom=0x7f020084;
+        public static final int shape_top_corner_no_bottom_line=0x7f020085;
+        public static final int textview_round=0x7f020086;
+        public static final int wheel_bg=0x7f020087;
+        public static final int wheel_val=0x7f020088;
+        public static final int zhangfei=0x7f020089;
+        public static final int zhaoyun=0x7f02008a;
+        public static final int zhugeliang=0x7f02008b;
     }
     public static final class id {
         public static final int accept=0x7f060086;
@@ -1458,19 +1462,20 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0b000b;
         public static final int about_us=0x7f0b003f;
-        public static final int accept=0x7f0b004a;
+        public static final int about_us_message=0x7f0b0040;
+        public static final int accept=0x7f0b004b;
         public static final int action_settings=0x7f0b0024;
-        public static final int app_exit=0x7f0b0046;
+        public static final int app_exit=0x7f0b0047;
         public static final int app_name=0x7f0b0023;
-        public static final int apply=0x7f0b004c;
-        public static final int apply_job_name=0x7f0b004e;
-        public static final int apply_name=0x7f0b004d;
+        public static final int apply=0x7f0b004d;
+        public static final int apply_job_name=0x7f0b004f;
+        public static final int apply_name=0x7f0b004e;
         public static final int begin_search=0x7f0b0035;
-        public static final int cancel=0x7f0b0042;
-        public static final int check_for_update=0x7f0b0040;
-        public static final int def_message_body=0x7f0b0048;
+        public static final int cancel=0x7f0b0043;
+        public static final int check_for_update=0x7f0b0041;
+        public static final int def_message_body=0x7f0b0049;
         public static final int def_message_title=0x7f0b0027;
-        public static final int def_sender_name=0x7f0b0047;
+        public static final int def_sender_name=0x7f0b0048;
         public static final int drawer_close=0x7f0b0033;
         public static final int drawer_open=0x7f0b0034;
         public static final int find_neitweet=0x7f0b002e;
@@ -1483,10 +1488,10 @@ containing a value of this type.
         public static final int hire_count_lable=0x7f0b001c;
         public static final int logout_action=0x7f0b0028;
         public static final int main_act_lable=0x7f0b002d;
-        public static final int message=0x7f0b004b;
+        public static final int message=0x7f0b004c;
         public static final int message_act_label=0x7f0b0026;
-        public static final int message_hint=0x7f0b0049;
-        public static final int message_list_act_label=0x7f0b004f;
+        public static final int message_hint=0x7f0b004a;
+        public static final int message_list_act_label=0x7f0b0050;
         public static final int my_center=0x7f0b0037;
         public static final int my_job=0x7f0b003b;
         public static final int my_message=0x7f0b0039;
@@ -1495,8 +1500,8 @@ containing a value of this type.
         public static final int navigation_drawer_close=0x7f0b002c;
         public static final int navigation_drawer_open=0x7f0b002b;
         public static final int post_job_btn_next_step=0x7f0b0022;
-        public static final int post_job_company=0x7f0b0044;
-        public static final int post_job_job=0x7f0b0045;
+        public static final int post_job_company=0x7f0b0045;
+        public static final int post_job_job=0x7f0b0046;
         public static final int post_job_label_company_address=0x7f0b000f;
         public static final int post_job_label_company_industry=0x7f0b0010;
         public static final int post_job_label_company_name=0x7f0b000e;
@@ -1512,10 +1517,10 @@ containing a value of this type.
         public static final int post_job_label_salary=0x7f0b001a;
         public static final int post_job_label_work_year=0x7f0b0014;
         public static final int post_job_new_job=0x7f0b001b;
-        public static final int post_jos=0x7f0b0043;
+        public static final int post_jos=0x7f0b0044;
         public static final int refresh_action=0x7f0b002a;
         public static final int reply=0x7f0b0029;
-        public static final int save=0x7f0b0041;
+        public static final int save=0x7f0b0042;
         public static final int search_hint=0x7f0b0032;
         public static final int search_record=0x7f0b0036;
         public static final int send=0x7f0b0025;
@@ -1537,6 +1542,38 @@ containing a value of this type.
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+    <style name="Theme.AppCompat" parent="Theme.Base.AppCompat">
+        <item name="isLightTheme">false</item>
+
+        <item name="spinnerDropDownItemStyle">            @style/Widget.AppCompat.DropDownItem.Spinner</item>
+        <item name="dropdownListPreferredItemHeight">?attr/listPreferredItemHeightSmall</item>
+        <item name="searchResultListItemHeight">58dip</item>
+
+        <item name="popupMenuStyle">@style/Widget.AppCompat.PopupMenu</item>
+        <item name="textAppearanceLargePopupMenu">            @style/TextAppearance.AppCompat.Widget.PopupMenu.Large</item>
+        <item name="textAppearanceSmallPopupMenu">            @style/TextAppearance.AppCompat.Widget.PopupMenu.Small</item>
+        <item name="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
+        <item name="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+
+        <item name="searchDropdownBackground">@drawable/abc_search_dropdown_dark</item>
+        <item name="searchViewTextField">@drawable/abc_textfield_searchview_holo_dark</item>
+        <item name="searchViewTextFieldRight">@drawable/abc_textfield_searchview_right_holo_dark</item>
+        <item name="searchViewCloseIcon">@drawable/abc_ic_clear</item>
+        <item name="searchViewSearchIcon">@drawable/abc_ic_search</item>
+        <item name="searchViewGoIcon">@drawable/abc_ic_go</item>
+        <item name="searchViewVoiceIcon">@drawable/abc_ic_voice_search</item>
+        <item name="searchViewEditQuery">@drawable/abc_ic_commit_search_api_holo_dark</item>
+        <item name="searchViewEditQueryBackground">?attr/selectableItemBackground</item>
+        <item name="searchViewAutoCompleteTextView">            @style/Widget.AppCompat.AutoCompleteTextView</item>
+        <item name="textColorSearchUrl">@color/abc_search_url_text_holo</item>
+        <item name="textAppearanceSearchResultTitle">            @style/TextAppearance.AppCompat.SearchResult.Title</item>
+        <item name="textAppearanceSearchResultSubtitle">            @style/TextAppearance.AppCompat.SearchResult.Subtitle</item>
+        <item name="actionModeShareDrawable">@drawable/abc_ic_menu_share_holo_dark</item>
+
+        <item name="activityChooserViewStyle">@style/Widget.AppCompat.ActivityChooserView</item>
+    </style>
+ 
 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
